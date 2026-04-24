@@ -22,9 +22,17 @@ export function useSafariPlus() {
     if (checkReady()) return
 
     const existing = document.querySelector(`script[src="${SAFARI_SCRIPT_SRC}"]`)
-    if (!existing) {
+    if (existing && existing.type !== 'module') {
+      existing.remove()
+    }
+
+    const validExisting = document.querySelector(
+      `script[src="${SAFARI_SCRIPT_SRC}"][type="module"]`,
+    )
+    if (!validExisting) {
       const script = document.createElement('script')
       script.src = SAFARI_SCRIPT_SRC
+      script.type = 'module'
       script.async = true
       script.onload = () => checkReady()
       script.onerror = () => {
@@ -34,12 +42,12 @@ export function useSafariPlus() {
       return
     }
 
-    if (!existing.dataset.listenerAttached) {
-      existing.addEventListener('load', () => checkReady())
-      existing.addEventListener('error', () =>
+    if (!validExisting.dataset.listenerAttached) {
+      validExisting.addEventListener('load', () => checkReady())
+      validExisting.addEventListener('error', () =>
         setError('Booking service failed to load. Please try again shortly.'),
       )
-      existing.dataset.listenerAttached = 'true'
+      validExisting.dataset.listenerAttached = 'true'
     }
   }, [checkReady])
 
