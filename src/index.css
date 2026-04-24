@@ -60,6 +60,17 @@ body.safari-dialog-open header {
   }
 }
 
+@keyframes emergeFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(46px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .reveal-up {
   opacity: 0;
   transform: translateY(22px);
@@ -87,4 +98,14 @@ body.safari-dialog-open header {
 
 .glow-on-hover:hover {
   animation: pulseGlow 1.4s ease-in-out infinite;
+}
+
+.booking-emerge {
+  animation: emergeFromBottom 0.85s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .booking-emerge {
+    animation: none;
+  }
 }

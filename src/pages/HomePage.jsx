@@ -75,7 +75,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="book" className="grid gap-4 md:grid-cols-[280px_1fr]">
+      <section
+        id="book"
+        className="booking-emerge relative z-20 -mt-16 grid gap-4 sm:-mt-20 md:-mt-24 md:grid-cols-[250px_1fr] lg:-mt-28 lg:grid-cols-[280px_1fr]"
+      >
         <ScrollReveal>
           <aside className="rounded-3xl bg-gradient-to-b from-[#26118a] to-[#4b16a8] p-6 text-white shadow-2xl">
             <p className="text-3xl font-extrabold">Call Now</p>
