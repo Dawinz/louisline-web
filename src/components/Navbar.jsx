@@ -33,15 +33,15 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex shrink-0 items-center gap-3"
+            className="flex shrink-0 items-center gap-3 rounded-xl bg-gradient-to-r from-white via-white/95 to-white/75 px-2.5 py-1.5 shadow-lg ring-1 ring-white/60 backdrop-blur-sm"
             onClick={() => setMenuOpen(false)}
           >
             <img
               src="/louisline-logo.png"
               alt="Louisline"
-              className="h-10 w-auto md:h-12"
+              className="h-10 w-auto drop-shadow-sm md:h-12"
             />
-            <span className="hidden text-lg font-bold tracking-wide text-white sm:inline">
+            <span className="hidden text-lg font-extrabold tracking-wide text-[#29388d] sm:inline">
               LOUISLINE
             </span>
           </Link>
