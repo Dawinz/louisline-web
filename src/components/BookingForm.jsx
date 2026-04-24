@@ -25,6 +25,11 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
     setSubmitError('')
   }
 
+  const swapRoute = () => {
+    setForm((prev) => ({ ...prev, from: prev.to, to: prev.from }))
+    setFieldErrors((prev) => ({ ...prev, from: '', to: '' }))
+  }
+
   const validate = () => {
     const nextErrors = {}
     if (!form.from) nextErrors.from = 'Select departure location.'
@@ -83,97 +88,106 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
   }
 
   return (
-    <section className="glass-panel rounded-3xl p-5 shadow-2xl md:p-8">
-      <h3 className="text-2xl font-bold text-slate-900">{title}</h3>
-      <p className="mt-1 text-sm text-slate-600">
-        Fast digital booking powered by Safari Yetu.
-      </p>
+    <section className="rounded-3xl border border-white/20 bg-white/95 p-3 shadow-2xl md:p-4">
+      <h3 className="px-2 pt-1 text-xl font-bold text-slate-900">{title}</h3>
+      <p className="px-2 text-sm text-slate-600">Find trips and launch instant booking.</p>
 
-      <form className="mt-5 grid gap-4 md:grid-cols-2" onSubmit={launchBooking}>
-        <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700" htmlFor="from">
-            From
-          </label>
-          <select
-            id="from"
-            name="from"
-            value={form.from}
-            onChange={onChange}
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-[#29388d] focus:outline-none"
-          >
-            <option value="">Select origin</option>
-            {LOCATIONS.map((location) => (
-              <option key={location.value} value={location.value}>
-                {location.label}
-              </option>
-            ))}
-          </select>
-          {fieldErrors.from ? <p className="mt-1 text-xs text-red-600">{fieldErrors.from}</p> : null}
-        </div>
+      <form className="mt-3 overflow-hidden rounded-2xl border border-slate-200 bg-white" onSubmit={launchBooking}>
+        <div className="grid md:grid-cols-[1fr_auto_1fr_1fr_1fr_190px]">
+          <div className="border-b border-slate-200 p-4 md:border-b-0 md:border-r">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500" htmlFor="from">
+              From
+            </label>
+            <select
+              id="from"
+              name="from"
+              value={form.from}
+              onChange={onChange}
+              className="w-full bg-transparent text-lg font-semibold text-slate-900 focus:outline-none"
+            >
+              <option value="">Select location</option>
+              {LOCATIONS.map((location) => (
+                <option key={location.value} value={location.value}>
+                  {location.label}
+                </option>
+              ))}
+            </select>
+            {fieldErrors.from ? <p className="mt-1 text-xs text-red-600">{fieldErrors.from}</p> : null}
+          </div>
 
-        <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700" htmlFor="to">
-            To
-          </label>
-          <select
-            id="to"
-            name="to"
-            value={form.to}
-            onChange={onChange}
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-[#29388d] focus:outline-none"
-          >
-            <option value="">Select destination</option>
-            {LOCATIONS.map((location) => (
-              <option key={location.value} value={location.value}>
-                {location.label}
-              </option>
-            ))}
-          </select>
-          {fieldErrors.to ? <p className="mt-1 text-xs text-red-600">{fieldErrors.to}</p> : null}
-        </div>
+          <div className="flex items-center justify-center border-b border-slate-200 p-2 md:border-b-0 md:border-r">
+            <button
+              type="button"
+              onClick={swapRoute}
+              className="rounded-full bg-slate-100 p-2 text-slate-700 transition hover:bg-slate-200"
+              aria-label="Swap route"
+            >
+              ↔
+            </button>
+          </div>
 
-        <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700" htmlFor="date">
-            Departure date
-          </label>
-          <input
-            id="date"
-            name="date"
-            type="date"
-            min={today}
-            value={form.date}
-            onChange={onChange}
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-[#29388d] focus:outline-none"
-          />
-          {fieldErrors.date ? <p className="mt-1 text-xs text-red-600">{fieldErrors.date}</p> : null}
-        </div>
+          <div className="border-b border-slate-200 p-4 md:border-b-0 md:border-r">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500" htmlFor="to">
+              To
+            </label>
+            <select
+              id="to"
+              name="to"
+              value={form.to}
+              onChange={onChange}
+              className="w-full bg-transparent text-lg font-semibold text-slate-900 focus:outline-none"
+            >
+              <option value="">Select destination</option>
+              {LOCATIONS.map((location) => (
+                <option key={location.value} value={location.value}>
+                  {location.label}
+                </option>
+              ))}
+            </select>
+            {fieldErrors.to ? <p className="mt-1 text-xs text-red-600">{fieldErrors.to}</p> : null}
+          </div>
 
-        <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700" htmlFor="passengers">
-            Passengers
-          </label>
-          <input
-            id="passengers"
-            name="passengers"
-            type="number"
-            min="1"
-            max="8"
-            value={form.passengers}
-            onChange={onChange}
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-[#29388d] focus:outline-none"
-          />
-          {fieldErrors.passengers ? (
-            <p className="mt-1 text-xs text-red-600">{fieldErrors.passengers}</p>
-          ) : null}
-        </div>
+          <div className="border-b border-slate-200 p-4 md:border-b-0 md:border-r">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500" htmlFor="date">
+              Date
+            </label>
+            <input
+              id="date"
+              name="date"
+              type="date"
+              min={today}
+              value={form.date}
+              onChange={onChange}
+              className="w-full bg-transparent text-lg font-semibold text-slate-900 focus:outline-none"
+            />
+            {fieldErrors.date ? <p className="mt-1 text-xs text-red-600">{fieldErrors.date}</p> : null}
+          </div>
 
-        <div className="md:col-span-2">
+          <div className="border-b border-slate-200 p-4 md:border-b-0 md:border-r">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500" htmlFor="passengers">
+              Passengers
+            </label>
+            <input
+              id="passengers"
+              name="passengers"
+              type="number"
+              min="1"
+              max="8"
+              value={form.passengers}
+              onChange={onChange}
+              className="w-full bg-transparent text-lg font-semibold text-slate-900 focus:outline-none"
+            />
+            {fieldErrors.passengers ? (
+              <p className="mt-1 text-xs text-red-600">{fieldErrors.passengers}</p>
+            ) : null}
+          </div>
+
           <button
             type="submit"
             disabled={isLaunching}
-            className="w-full rounded-xl bg-gradient-to-r from-[#d91d27] to-[#29388d] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-[#29388d]/30 transition hover:from-[#b61720] hover:to-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70"
+            className="bg-[#c6b56a] px-6 py-5 text-base font-extrabold uppercase tracking-wide text-slate-900 transition hover:bg-[#b7a45a] disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {isLaunching ? 'Launching booking...' : 'Book with Safari Yetu'}
+            {isLaunching ? 'Launching...' : 'Search'}
           </button>
         </div>
       </form>
