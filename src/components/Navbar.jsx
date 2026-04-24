@@ -28,8 +28,8 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-gradient-to-r from-[#4c1d95] via-[#5b21b6] to-[#312e81] shadow-lg">
-      <div className="relative mx-auto max-w-6xl px-4 py-3 md:py-4">
-        <div className="flex items-center justify-between gap-4">
+      <div className="relative mx-auto max-w-7xl px-4 py-3 md:py-4">
+        <div className="flex items-center justify-between gap-3 lg:gap-6">
           {/* Logo */}
           <Link
             to="/"
@@ -47,14 +47,14 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav — centered */}
-          <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block">
-            <ul className="flex items-center gap-1 lg:gap-2">
+          <nav className="hidden flex-1 justify-center md:flex">
+            <ul className="flex items-center gap-0.5 lg:gap-1.5">
               {navLinks.map((link) => (
                 <li key={link.to}>
                   <NavLink
                     to={link.to}
                     className={({ isActive }) =>
-                      `rounded-md px-3 py-2 text-xs font-bold uppercase tracking-wider transition lg:px-4 lg:text-sm ${
+                      `rounded-md px-2.5 py-2 text-xs font-bold uppercase tracking-wide transition lg:px-3 lg:text-sm ${
                         isActive
                           ? 'text-amber-400'
                           : 'text-white/90 hover:text-amber-300'
@@ -69,8 +69,8 @@ export default function Navbar() {
           </nav>
 
           {/* Right info + mobile toggle */}
-          <div className="flex items-center gap-3 md:gap-6">
-            <div className="hidden items-center gap-6 lg:flex">
+          <div className="flex items-center gap-3 md:gap-4">
+            <div className="hidden items-center gap-3 xl:flex">
               <InfoBlock
                 icon="🕐"
                 title="Working hours"

@@ -13,6 +13,10 @@ export default function HomePage() {
     }),
     [searchParams],
   )
+  const heroMixedImages = useMemo(
+    () => [IMAGE_URLS[0], IMAGE_URLS[4], IMAGE_URLS[8], IMAGE_URLS[12]].filter(Boolean),
+    [],
+  )
 
   return (
     <div className="space-y-14">
@@ -57,7 +61,7 @@ export default function HomePage() {
             </ScrollReveal>
             <ScrollReveal delay={120}>
               <div className="grid grid-cols-2 gap-3">
-                {IMAGE_URLS.slice(0, 4).map((image, index) => (
+                {heroMixedImages.map((image, index) => (
                   <img
                     key={image}
                     src={image}
