@@ -12,3 +12,8 @@ body {
   background: #f8fafc;
   color: #0f172a;
 }
+
+/* Keep Safari Yetu dialog above sticky navbar on small screens */
+body.safari-dialog-open header {
+  z-index: 1 !important;
+}

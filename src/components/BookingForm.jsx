@@ -56,6 +56,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
     try {
       setIsLaunching(true)
       document.body.style.overflow = 'hidden'
+      document.body.classList.add('safari-dialog-open')
       window.safariplus.newTripDialog({
         operatorId: OPERATOR_ID,
         origin: form.from,
@@ -65,6 +66,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
       })
       const cleanupAfterDialog = () => {
         document.body.style.overflow = ''
+        document.body.classList.remove('safari-dialog-open')
         setIsLaunching(false)
         window.removeEventListener('focus', cleanupAfterDialog)
       }
@@ -72,6 +74,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
       setTimeout(cleanupAfterDialog, 1500)
     } catch (err) {
       document.body.style.overflow = ''
+      document.body.classList.remove('safari-dialog-open')
       setIsLaunching(false)
       setSubmitError(
         err?.message || 'Could not open booking right now. Please retry.',
