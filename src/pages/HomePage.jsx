@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <div className="space-y-14">
       <section
-        className="dark-gradient relative overflow-hidden rounded-3xl p-6 text-white md:p-10"
+        className="relative -mx-[calc(50vw-50%)] w-screen overflow-hidden text-white"
         style={{
           backgroundImage: `linear-gradient(rgba(15,23,42,0.76),rgba(15,23,42,0.82)), url('${IMAGE_URLS[0]}')`,
           backgroundSize: 'cover',
@@ -26,46 +26,48 @@ export default function HomePage() {
       >
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
         <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
-        <div className="relative grid gap-8 md:grid-cols-2">
-          <ScrollReveal>
-            <div className="space-y-5">
-              <p className="inline-block rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
-                Premium Intercity Transport
-              </p>
-              <h1 className="text-3xl font-bold leading-tight md:text-5xl">
-                Executive bus travel designed for comfort and confidence.
-              </h1>
-              <p className="text-sm text-blue-100 md:text-base">
-                Louisline delivers dependable routes, modern coaches, and seamless online booking.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  to="/routes"
-                  className="inline-flex rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-blue-900 hover:bg-blue-50"
-                >
-                  Explore Routes
-                </Link>
-                <Link
-                  to="/book"
-                  className="inline-flex rounded-xl border border-red-300/70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-500/20"
-                >
-                  Start Booking
-                </Link>
+        <div className="relative mx-auto flex min-h-[calc(100dvh-4.75rem)] max-w-6xl flex-col justify-center px-4 py-14 md:px-6 md:py-20">
+          <div className="grid gap-8 md:grid-cols-2">
+            <ScrollReveal>
+              <div className="space-y-5">
+                <p className="inline-block rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
+                  Premium Intercity Transport
+                </p>
+                <h1 className="text-3xl font-bold leading-tight md:text-5xl">
+                  Executive bus travel designed for comfort and confidence.
+                </h1>
+                <p className="text-sm text-blue-100 md:text-base">
+                  Louisline delivers dependable routes, modern coaches, and seamless online booking.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    to="/routes"
+                    className="inline-flex rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-blue-900 hover:bg-blue-50"
+                  >
+                    Explore Routes
+                  </Link>
+                  <Link
+                    to="/book"
+                    className="inline-flex rounded-xl border border-red-300/70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-500/20"
+                  >
+                    Start Booking
+                  </Link>
+                </div>
               </div>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={120}>
-            <div className="grid grid-cols-2 gap-3">
-              {IMAGE_URLS.slice(0, 4).map((image, index) => (
-                <img
-                  key={image}
-                  src={image}
-                  alt={`Louisline preview ${index + 1}`}
-                  className="h-36 w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-44"
-                />
-              ))}
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+            <ScrollReveal delay={120}>
+              <div className="grid grid-cols-2 gap-3">
+                {IMAGE_URLS.slice(0, 4).map((image, index) => (
+                  <img
+                    key={image}
+                    src={image}
+                    alt={`Louisline preview ${index + 1}`}
+                    className="h-36 w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-44"
+                  />
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
