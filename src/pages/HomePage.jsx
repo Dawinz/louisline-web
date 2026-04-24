@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <div className="space-y-14">
       <section className="dark-gradient relative overflow-hidden rounded-3xl p-6 text-white md:p-10">
-        <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-cyan-300/20 blur-3xl" />
+        <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
         <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="relative grid gap-8 md:grid-cols-2">
           <div className="space-y-5">
@@ -38,7 +38,7 @@ export default function HomePage() {
               </Link>
               <Link
                 to="/book"
-                className="inline-flex rounded-xl border border-white/40 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10"
+                className="inline-flex rounded-xl border border-red-300/70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-500/20"
               >
                 Start Booking
               </Link>
@@ -77,7 +77,7 @@ export default function HomePage() {
       <section>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-slate-900">Gallery Preview</h2>
-          <Link to="/gallery" className="text-sm font-semibold text-blue-700 hover:text-blue-900">
+          <Link to="/gallery" className="text-sm font-semibold text-[#29388d] hover:text-[#d91d27]">
             View full gallery
           </Link>
         </div>

@@ -3,7 +3,7 @@ import { IMAGE_URLS } from '../data/routes'
 export default function GalleryPage() {
   return (
     <section className="space-y-6">
-      <div className="rounded-3xl bg-gradient-to-r from-slate-900 to-blue-900 p-6 text-white">
+      <div className="rounded-3xl bg-gradient-to-r from-[#29388d] to-[#d91d27] p-6 text-white">
         <h1 className="text-3xl font-bold">Louisline Gallery</h1>
         <p className="mt-2 text-blue-100">A look at our buses and travel moments.</p>
       </div>

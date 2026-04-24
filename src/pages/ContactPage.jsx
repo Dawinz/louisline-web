@@ -20,7 +20,7 @@ export default function ContactPage() {
           href={WHATSAPP_LINK}
           target="_blank"
           rel="noreferrer"
-          className="mt-5 inline-flex rounded-xl bg-gradient-to-r from-emerald-500 to-green-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 hover:from-emerald-600 hover:to-green-600"
+          className="mt-5 inline-flex rounded-xl bg-gradient-to-r from-[#d91d27] to-[#29388d] px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[#29388d]/30 hover:from-[#b61720] hover:to-[#1e2a6e]"
         >
           Chat on WhatsApp
         </a>
@@ -35,21 +35,21 @@ export default function ContactPage() {
           <input
             type="text"
             placeholder="Your Name"
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-[#29388d] focus:outline-none"
           />
           <input
             type="email"
             placeholder="Email Address"
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-[#29388d] focus:outline-none"
           />
           <textarea
             placeholder="Message"
             rows="4"
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-[#29388d] focus:outline-none"
           />
           <button
             type="button"
-            className="rounded-xl bg-gradient-to-r from-slate-900 to-blue-900 px-4 py-2.5 text-sm font-semibold text-white hover:from-black hover:to-blue-950"
+            className="rounded-xl bg-gradient-to-r from-[#29388d] to-[#d91d27] px-4 py-2.5 text-sm font-semibold text-white hover:from-[#1e2a6e] hover:to-[#b61720]"
           >
             Send Message
           </button>
