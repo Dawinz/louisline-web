@@ -3,7 +3,7 @@ import { WHATSAPP_LINK } from '../data/routes'
 export default function ContactPage() {
   return (
     <div className="grid gap-6 md:grid-cols-2">
-      <section className="soft-card rounded-2xl p-6">
+      <section className="soft-card reveal-up rounded-2xl p-6">
         <h1 className="text-3xl font-bold text-slate-900">Contact Louisline</h1>
         <div className="mt-4 space-y-3 text-sm text-slate-700">
           <p>
@@ -26,7 +26,7 @@ export default function ContactPage() {
         </a>
       </section>
 
-      <section className="soft-card rounded-2xl p-6">
+      <section className="soft-card reveal-up reveal-delay-1 rounded-2xl p-6">
         <h2 className="text-2xl font-semibold text-slate-900">Send us a message</h2>
         <p className="mt-2 text-sm text-slate-600">
           Frontend-only contact form for quick inquiries.

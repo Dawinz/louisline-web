@@ -15,12 +15,19 @@ export default function HomePage() {
 
   return (
     <div className="space-y-14">
-      <section className="dark-gradient relative overflow-hidden rounded-3xl p-6 text-white md:p-10">
+      <section
+        className="dark-gradient relative overflow-hidden rounded-3xl p-6 text-white md:p-10"
+        style={{
+          backgroundImage: `linear-gradient(rgba(15,23,42,0.76),rgba(15,23,42,0.82)), url('${IMAGE_URLS[0]}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
         <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="relative grid gap-8 md:grid-cols-2">
-          <div className="space-y-5">
-            <p className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
+          <div className="space-y-5 reveal-up">
+            <p className="inline-block rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
             Premium Intercity Transport
             </p>
             <h1 className="text-3xl font-bold leading-tight md:text-5xl">
@@ -44,21 +51,29 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-3 reveal-up reveal-delay-2">
             {IMAGE_URLS.slice(0, 4).map((image, index) => (
               <img
                 key={image}
                 src={image}
                 alt={`Louisline preview ${index + 1}`}
-                className="h-36 w-full rounded-xl border border-white/20 object-cover md:h-44"
+                className="h-36 w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-44"
               />
             ))}
           </div>
         </div>
       </section>
 
-      <section id="book">
-        <BookingForm initialValues={prefilled} title="Search and book your bus" />
+      <section id="book" className="grid gap-4 md:grid-cols-[280px_1fr]">
+        <aside className="reveal-up rounded-3xl bg-gradient-to-b from-[#26118a] to-[#4b16a8] p-6 text-white shadow-2xl">
+          <p className="text-3xl font-extrabold">Call Now</p>
+          <p className="mt-3 text-sm text-indigo-100">Need quick help with booking?</p>
+          <p className="mt-6 text-4xl font-black tracking-wide">0683 300 100</p>
+          <p className="mt-2 text-sm text-indigo-200">Support available daily</p>
+        </aside>
+        <div className="reveal-up reveal-delay-1">
+          <BookingForm initialValues={prefilled} title="Search and book your bus" />
+        </div>
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
@@ -67,7 +82,7 @@ export default function HomePage() {
           ['Premium comfort', 'Spacious seating and smooth intercity travel experience.'],
           ['Digital booking', 'Instant Safari Yetu booking flow without long queues.'],
         ].map((feature) => (
-          <article key={feature[0]} className="soft-card rounded-2xl p-6">
+          <article key={feature[0]} className="soft-card glow-on-hover reveal-up rounded-2xl p-6">
             <h3 className="text-lg font-bold text-slate-900">{feature[0]}</h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">{feature[1]}</p>
           </article>
@@ -87,7 +102,7 @@ export default function HomePage() {
               key={image}
               src={image}
               alt={`Louisline bus ${index + 1}`}
-              className="h-32 w-full rounded-xl border border-slate-200 object-cover shadow-md md:h-40"
+              className="floating-soft h-32 w-full rounded-xl border border-slate-200 object-cover shadow-md md:h-40"
             />
           ))}
         </div>

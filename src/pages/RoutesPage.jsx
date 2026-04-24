@@ -4,7 +4,7 @@ import { ROUTES, locationLabelByValue } from '../data/routes'
 export default function RoutesPage() {
   return (
     <section className="space-y-6">
-      <div className="rounded-3xl bg-gradient-to-r from-[#29388d] to-[#d91d27] p-6 text-white">
+      <div className="reveal-up rounded-3xl bg-gradient-to-r from-[#29388d] to-[#d91d27] p-6 text-white">
         <h1 className="text-3xl font-bold">Available Routes</h1>
         <p className="mt-2 text-blue-100">
         Choose a route and continue directly to booking with pre-filled details.
@@ -13,7 +13,7 @@ export default function RoutesPage() {
 
       <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {ROUTES.map((route) => (
-          <article key={route.id} className="soft-card rounded-2xl p-6">
+          <article key={route.id} className="soft-card reveal-up glow-on-hover rounded-2xl p-6">
             <p className="text-xs font-bold tracking-wide text-[#29388d]">{route.id}</p>
             <h2 className="mt-2 text-xl font-bold text-slate-900">
               {locationLabelByValue[route.from]} to {locationLabelByValue[route.to]}
