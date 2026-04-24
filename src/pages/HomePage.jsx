@@ -80,7 +80,7 @@ export default function HomePage() {
         className="booking-emerge relative z-20 -mt-16 grid gap-4 sm:-mt-20 md:-mt-24 md:grid-cols-[250px_1fr] lg:-mt-28 lg:grid-cols-[280px_1fr]"
       >
         <ScrollReveal>
-          <aside className="rounded-3xl bg-gradient-to-b from-[#26118a] to-[#4b16a8] p-6 text-white shadow-2xl">
+          <aside className="hidden rounded-3xl bg-gradient-to-b from-[#26118a] to-[#4b16a8] p-6 text-white shadow-2xl md:block">
             <p className="text-3xl font-extrabold">Call Now</p>
             <p className="mt-3 text-sm text-indigo-100">Need quick help with booking?</p>
             <p className="mt-6 text-4xl font-black tracking-wide">0683 300 100</p>
