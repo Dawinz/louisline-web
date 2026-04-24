@@ -83,8 +83,8 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
   }
 
   return (
-    <section className="rounded-2xl bg-white/95 p-5 shadow-xl ring-1 ring-slate-200 md:p-7">
-      <h3 className="text-xl font-semibold text-slate-900">{title}</h3>
+    <section className="glass-panel rounded-3xl p-5 shadow-2xl md:p-8">
+      <h3 className="text-2xl font-bold text-slate-900">{title}</h3>
       <p className="mt-1 text-sm text-slate-600">
         Fast digital booking powered by Safari Yetu.
       </p>
@@ -99,7 +99,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             name="from"
             value={form.from}
             onChange={onChange}
-            className="w-full rounded-xl border border-slate-300 px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
           >
             <option value="">Select origin</option>
             {LOCATIONS.map((location) => (
@@ -120,7 +120,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             name="to"
             value={form.to}
             onChange={onChange}
-            className="w-full rounded-xl border border-slate-300 px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
           >
             <option value="">Select destination</option>
             {LOCATIONS.map((location) => (
@@ -143,7 +143,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             min={today}
             value={form.date}
             onChange={onChange}
-            className="w-full rounded-xl border border-slate-300 px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
           />
           {fieldErrors.date ? <p className="mt-1 text-xs text-red-600">{fieldErrors.date}</p> : null}
         </div>
@@ -160,7 +160,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             max="8"
             value={form.passengers}
             onChange={onChange}
-            className="w-full rounded-xl border border-slate-300 px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
           />
           {fieldErrors.passengers ? (
             <p className="mt-1 text-xs text-red-600">{fieldErrors.passengers}</p>
@@ -171,7 +171,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
           <button
             type="submit"
             disabled={isLaunching}
-            className="w-full rounded-xl bg-blue-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-70"
+            className="w-full rounded-xl bg-gradient-to-r from-blue-700 to-cyan-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-700/30 transition hover:from-blue-800 hover:to-cyan-700 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isLaunching ? 'Launching booking...' : 'Book with Safari Yetu'}
           </button>

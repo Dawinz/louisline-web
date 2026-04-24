@@ -3,7 +3,7 @@ import { WHATSAPP_LINK } from '../data/routes'
 export default function ContactPage() {
   return (
     <div className="grid gap-6 md:grid-cols-2">
-      <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <section className="soft-card rounded-2xl p-6">
         <h1 className="text-3xl font-bold text-slate-900">Contact Louisline</h1>
         <div className="mt-4 space-y-3 text-sm text-slate-700">
           <p>
@@ -20,13 +20,13 @@ export default function ContactPage() {
           href={WHATSAPP_LINK}
           target="_blank"
           rel="noreferrer"
-          className="mt-5 inline-flex rounded-xl bg-emerald-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-600"
+          className="mt-5 inline-flex rounded-xl bg-gradient-to-r from-emerald-500 to-green-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 hover:from-emerald-600 hover:to-green-600"
         >
           Chat on WhatsApp
         </a>
       </section>
 
-      <section className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <section className="soft-card rounded-2xl p-6">
         <h2 className="text-2xl font-semibold text-slate-900">Send us a message</h2>
         <p className="mt-2 text-sm text-slate-600">
           Frontend-only contact form for quick inquiries.
@@ -35,21 +35,21 @@ export default function ContactPage() {
           <input
             type="text"
             placeholder="Your Name"
-            className="w-full rounded-xl border border-slate-300 px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
           />
           <input
             type="email"
             placeholder="Email Address"
-            className="w-full rounded-xl border border-slate-300 px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
           />
           <textarea
             placeholder="Message"
             rows="4"
-            className="w-full rounded-xl border border-slate-300 px-3 py-2.5 focus:border-blue-600 focus:outline-none"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none"
           />
           <button
             type="button"
-            className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-black"
+            className="rounded-xl bg-gradient-to-r from-slate-900 to-blue-900 px-4 py-2.5 text-sm font-semibold text-white hover:from-black hover:to-blue-950"
           >
             Send Message
           </button>

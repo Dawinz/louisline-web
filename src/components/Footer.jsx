@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="mt-14 bg-slate-900 text-slate-200">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-3">
+    <footer className="mt-16 border-t border-white/20 bg-slate-950 text-slate-200">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-3">
         <section>
-          <h3 className="text-base font-semibold text-white">Louisline</h3>
-          <p className="mt-2 text-sm text-slate-300">
+          <h3 className="text-xl font-bold text-white">Louisline</h3>
+          <p className="mt-3 text-sm leading-relaxed text-slate-300">
             Reliable travel across Tanzania with comfort, safety, and simple online booking.
           </p>
         </section>
@@ -21,7 +21,7 @@ export default function Footer() {
         </section>
         <section>
           <h3 className="text-base font-semibold text-white">Contact</h3>
-          <p className="mt-2 text-sm">Urafiki, Dar es Salaam, Tanzania</p>
+          <p className="mt-2 text-sm leading-relaxed">Urafiki, Dar es Salaam, Tanzania</p>
           <p className="mt-1 text-sm">0683 300 100 | 0798 700 700</p>
           <p className="mt-1 text-sm">WhatsApp: 0683 300 100</p>
         </section>
