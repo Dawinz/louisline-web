@@ -57,7 +57,7 @@ export default function Footer() {
               </p>
               <a
                 href="tel:+255683300100"
-                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-amber-400 to-orange-500 px-4 py-3 text-sm font-extrabold text-slate-900 shadow-lg shadow-amber-500/25 transition hover:from-amber-300 hover:to-orange-400"
+                className="inline-flex items-center gap-2 rounded-lg bg-[#29388d] px-4 py-3 text-sm font-bold text-white shadow-md shadow-[#29388d]/25 transition hover:bg-[#1e2a6e]"
               >
                 <span aria-hidden>📞</span>
                 0683 300 100
