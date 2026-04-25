@@ -95,7 +95,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
       <p className="px-2 text-sm text-slate-600">{t('bookingFindTrips')}</p>
 
       <form className="mt-3 overflow-hidden rounded-2xl border border-[#29388d]/20 bg-white shadow-sm" onSubmit={launchBooking}>
-        <div className="grid md:grid-cols-[1.4fr_auto_1.4fr_0.95fr_0.8fr_150px]">
+        <div className="grid md:grid-cols-[142px_52px_142px_96px_86px_104px] lg:grid-cols-[1.4fr_auto_1.4fr_0.95fr_0.8fr_132px]">
           <div className="border-b border-[#29388d]/10 p-4 md:border-b-0 md:border-r">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="from">
               {t('from')}
@@ -105,7 +105,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               name="from"
               value={form.from}
               onChange={onChange}
-              className="w-full bg-transparent text-sm font-semibold text-slate-900 focus:outline-none md:text-base"
+              className="w-full bg-transparent text-xs font-medium text-slate-900 focus:outline-none md:text-sm"
             >
               <option value="">{t('selectLocation')}</option>
               {LOCATIONS.map((location) => (
@@ -137,7 +137,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               name="to"
               value={form.to}
               onChange={onChange}
-              className="w-full bg-transparent text-sm font-semibold text-slate-900 focus:outline-none md:text-base"
+              className="w-full bg-transparent text-xs font-medium text-slate-900 focus:outline-none md:text-sm"
             >
               <option value="">{t('selectDestination')}</option>
               {LOCATIONS.map((location) => (
@@ -160,7 +160,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               min={today}
               value={form.date}
               onChange={onChange}
-              className="w-full bg-transparent text-sm font-semibold text-slate-900 focus:outline-none md:text-base"
+              className="w-full bg-transparent text-xs font-semibold text-slate-900 focus:outline-none md:text-sm"
             />
             {fieldErrors.date ? <p className="mt-1 text-xs text-red-600">{fieldErrors.date}</p> : null}
           </div>
@@ -177,7 +177,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               max="8"
               value={form.passengers}
               onChange={onChange}
-              className="w-full bg-transparent text-sm font-semibold text-slate-900 focus:outline-none md:text-base"
+              className="w-full bg-transparent text-xs font-semibold text-slate-900 focus:outline-none md:text-sm"
             />
             {fieldErrors.passengers ? (
               <p className="mt-1 text-xs text-red-600">{fieldErrors.passengers}</p>
@@ -187,7 +187,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
           <button
             type="submit"
             disabled={isLaunching}
-            className="bg-[#29388d] px-4 py-5 text-sm font-extrabold uppercase tracking-wide text-white transition hover:bg-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70 md:text-base"
+            className="bg-[#29388d] px-3 py-5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70 md:text-sm"
           >
             {isLaunching ? t('launching') : t('search')}
           </button>
