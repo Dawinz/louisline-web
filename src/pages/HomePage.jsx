@@ -3,8 +3,10 @@ import { Link, useSearchParams } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
 import ScrollReveal from '../components/ScrollReveal'
 import { IMAGE_URLS } from '../data/routes'
+import { useI18n } from '../i18n/I18nContext'
 
 export default function HomePage() {
+  const { t } = useI18n()
   const [searchParams] = useSearchParams()
   const prefilled = useMemo(
     () => ({
@@ -35,26 +37,26 @@ export default function HomePage() {
             <ScrollReveal>
               <div className="space-y-5">
                 <p className="inline-block rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
-                  Premium Intercity Transport
+                  {t('premiumIntercity')}
                 </p>
                 <h1 className="text-3xl font-bold leading-tight md:text-5xl">
-                  Executive bus travel designed for comfort and confidence.
+                  {t('heroTitle')}
                 </h1>
                 <p className="text-sm text-blue-100 md:text-base">
-                  Louisline delivers dependable routes, modern coaches, and seamless online booking.
+                  {t('heroSubtitle')}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Link
                     to="/routes"
                     className="inline-flex rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-blue-900 hover:bg-blue-50"
                   >
-                    Explore Routes
+                    {t('exploreRoutes')}
                   </Link>
                   <Link
                     to="/book"
                     className="inline-flex rounded-xl border border-red-300/70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-500/20"
                   >
-                    Start Booking
+                    {t('startBooking')}
                   </Link>
                 </div>
               </div>
@@ -81,22 +83,22 @@ export default function HomePage() {
       >
         <ScrollReveal>
           <aside className="hidden rounded-3xl bg-gradient-to-b from-[#26118a] to-[#4b16a8] p-6 text-white shadow-2xl md:block">
-            <p className="text-3xl font-extrabold">Call Now</p>
-            <p className="mt-3 text-sm text-indigo-100">Need quick help with booking?</p>
+            <p className="text-3xl font-extrabold">{t('callNow')}</p>
+            <p className="mt-3 text-sm text-indigo-100">{t('needQuickHelp')}</p>
             <p className="mt-6 text-4xl font-black tracking-wide">0683 300 100</p>
-            <p className="mt-2 text-sm text-indigo-200">Support available daily</p>
+            <p className="mt-2 text-sm text-indigo-200">{t('supportAvailableDaily')}</p>
           </aside>
         </ScrollReveal>
         <ScrollReveal delay={100}>
-          <BookingForm initialValues={prefilled} title="Search and book your bus" />
+          <BookingForm initialValues={prefilled} title={t('searchAndBookBus')} />
         </ScrollReveal>
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
         {[
-          ['Safety first', 'Experienced crew, strict checks, and reliable schedules.'],
-          ['Premium comfort', 'Spacious seating and smooth intercity travel experience.'],
-          ['Digital booking', 'Instant Safari Yetu booking flow without long queues.'],
+          [t('featureSafetyTitle'), t('featureSafetyDesc')],
+          [t('featureComfortTitle'), t('featureComfortDesc')],
+          [t('featureDigitalTitle'), t('featureDigitalDesc')],
         ].map((feature, index) => (
           <ScrollReveal key={feature[0]} delay={index * 90}>
             <article className="soft-card glow-on-hover rounded-2xl p-6">
@@ -110,9 +112,9 @@ export default function HomePage() {
       <section>
         <ScrollReveal>
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-slate-900">Gallery Preview</h2>
+            <h2 className="text-2xl font-bold text-slate-900">{t('galleryPreview')}</h2>
             <Link to="/gallery" className="text-sm font-semibold text-[#29388d] hover:text-[#d91d27]">
-              View full gallery
+              {t('viewFullGallery')}
             </Link>
           </div>
         </ScrollReveal>

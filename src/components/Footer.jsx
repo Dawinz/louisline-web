@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import ScrollReveal from './ScrollReveal'
 import { WHATSAPP_LINK } from '../data/routes'
+import { useI18n } from '../i18n/I18nContext'
 
 function FooterLink({ to, children }) {
   return (
@@ -28,6 +29,7 @@ function SocialLink({ href, label, children }) {
 }
 
 export default function Footer() {
+  const { t } = useI18n()
   return (
     <footer className="relative mt-20 overflow-hidden border-t border-white/10 bg-gradient-to-br from-[#0b1224] via-[#111b36] to-[#1a0f3d] text-slate-200">
       <div
@@ -51,7 +53,7 @@ export default function Footer() {
             <div className="space-y-4">
               <img src="/louisline-logo.png" alt="Louisline" className="h-12 w-auto" />
               <p className="text-sm leading-relaxed text-slate-300">
-                Louisline connects cities with dependable schedules, comfortable coaches, and simple online booking powered by Safari Yetu.
+                {t('footerCompanyDesc')}
               </p>
               <a
                 href="tel:+255683300100"
@@ -65,32 +67,32 @@ export default function Footer() {
 
           <ScrollReveal delay={90}>
             <div>
-              <h3 className="text-base font-bold uppercase tracking-wide text-white">Company</h3>
+              <h3 className="text-base font-bold uppercase tracking-wide text-white">{t('company')}</h3>
               <div className="mt-4 flex flex-col gap-2">
-                <FooterLink to="/routes">Routes</FooterLink>
-                <FooterLink to="/gallery">Gallery</FooterLink>
-                <FooterLink to="/contact">Contact</FooterLink>
-                <FooterLink to="/book">Book</FooterLink>
+                <FooterLink to="/routes">{t('navRoutes')}</FooterLink>
+                <FooterLink to="/gallery">{t('navGallery')}</FooterLink>
+                <FooterLink to="/contact">{t('navContact')}</FooterLink>
+                <FooterLink to="/book">{t('navBook')}</FooterLink>
               </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={160}>
             <div>
-              <h3 className="text-base font-bold uppercase tracking-wide text-white">Services</h3>
+              <h3 className="text-base font-bold uppercase tracking-wide text-white">{t('services')}</h3>
               <div className="mt-4 flex flex-col gap-2">
-                <span className="text-sm text-slate-300">Comfort seating</span>
-                <span className="text-sm text-slate-300">On-time departures</span>
-                <span className="text-sm text-slate-300">Online booking</span>
-                <span className="text-sm text-slate-300">Customer support</span>
-                <span className="text-sm text-slate-300">Luggage-friendly coaches</span>
+                <span className="text-sm text-slate-300">{t('serviceComfort')}</span>
+                <span className="text-sm text-slate-300">{t('serviceOnTime')}</span>
+                <span className="text-sm text-slate-300">{t('serviceOnlineBooking')}</span>
+                <span className="text-sm text-slate-300">{t('serviceSupport')}</span>
+                <span className="text-sm text-slate-300">{t('serviceLuggage')}</span>
               </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={230}>
             <div>
-              <h3 className="text-base font-bold uppercase tracking-wide text-white">Get in touch</h3>
+              <h3 className="text-base font-bold uppercase tracking-wide text-white">{t('getInTouch')}</h3>
               <ul className="mt-4 space-y-3 text-sm text-slate-300">
                 <li className="flex gap-3">
                   <span className="text-amber-400" aria-hidden>
@@ -113,7 +115,7 @@ export default function Footer() {
                   <span>0683 300 100 · 0798 700 700</span>
                 </li>
               </ul>
-              <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-slate-400">Follow us</p>
+              <p className="mt-6 text-xs font-semibold uppercase tracking-wide text-slate-400">{t('followUs')}</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <SocialLink href={WHATSAPP_LINK} label="WhatsApp">
                   <span className="text-base">W</span>
@@ -134,13 +136,13 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-white/10 pt-6">
           <div className="flex flex-col gap-3 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-            <p>Copyright © 2026 Louisline. All rights reserved.</p>
+            <p>{t('copyright')}</p>
             <div className="flex flex-wrap gap-x-3 gap-y-1">
-              <span className="cursor-default">Terms of use</span>
+              <span className="cursor-default">{t('terms')}</span>
               <span className="text-slate-600">|</span>
-              <span className="cursor-default">Privacy policy</span>
+              <span className="cursor-default">{t('privacy')}</span>
               <span className="text-slate-600">|</span>
-              <span className="cursor-default">Cookie policy</span>
+              <span className="cursor-default">{t('cookies')}</span>
             </div>
           </div>
         </div>

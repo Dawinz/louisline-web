@@ -1,13 +1,6 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/routes', label: 'Routes' },
-  { to: '/gallery', label: 'Gallery' },
-  { to: '/contact', label: 'Contact' },
-  { to: '/book', label: 'Book' },
-]
+import { useI18n } from '../i18n/I18nContext'
 
 function InfoBlock({ icon, title, subtitle }) {
   return (
@@ -25,6 +18,14 @@ function InfoBlock({ icon, title, subtitle }) {
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { language, setLanguage, t } = useI18n()
+  const navLinks = [
+    { to: '/', label: t('navHome') },
+    { to: '/routes', label: t('navRoutes') },
+    { to: '/gallery', label: t('navGallery') },
+    { to: '/contact', label: t('navContact') },
+    { to: '/book', label: t('navBook') },
+  ]
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-gradient-to-r from-[#4c1d95] via-[#5b21b6] to-[#312e81] shadow-lg">
@@ -73,21 +74,37 @@ export default function Navbar() {
             <div className="hidden items-center gap-3 xl:flex">
               <InfoBlock
                 icon="🕐"
-                title="Working hours"
-                subtitle="Mon–Sun : 6am–10pm"
+                title={t('workingHours')}
+                subtitle={t('workingHoursValue')}
               />
               <InfoBlock
                 icon="📞"
-                title="Call center"
+                title={t('callCenter')}
                 subtitle="0683 300 100"
               />
+            </div>
+            <div className="hidden rounded-lg bg-white/10 p-1 md:flex">
+              <button
+                type="button"
+                onClick={() => setLanguage('en')}
+                className={`rounded px-2 py-1 text-xs font-semibold ${language === 'en' ? 'bg-white text-[#312e81]' : 'text-white'}`}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage('sw')}
+                className={`rounded px-2 py-1 text-xs font-semibold ${language === 'sw' ? 'bg-white text-[#312e81]' : 'text-white'}`}
+              >
+                SW
+              </button>
             </div>
 
             <button
               type="button"
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/20 text-white md:hidden"
               aria-expanded={menuOpen}
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={menuOpen ? t('closeMenu') : t('openMenu')}
               onClick={() => setMenuOpen((open) => !open)}
             >
               {menuOpen ? '✕' : '☰'}
@@ -117,14 +134,30 @@ export default function Navbar() {
               ))}
             </nav>
             <div className="mt-4 space-y-3 border-t border-white/10 pt-4">
+              <div className="mb-3 rounded-lg bg-white/10 p-1">
+                <button
+                  type="button"
+                  onClick={() => setLanguage('en')}
+                  className={`rounded px-3 py-1 text-xs font-semibold ${language === 'en' ? 'bg-white text-[#312e81]' : 'text-white'}`}
+                >
+                  EN
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLanguage('sw')}
+                  className={`ml-1 rounded px-3 py-1 text-xs font-semibold ${language === 'sw' ? 'bg-white text-[#312e81]' : 'text-white'}`}
+                >
+                  SW
+                </button>
+              </div>
               <InfoBlock
                 icon="🕐"
-                title="Working hours"
-                subtitle="Mon–Sun : 6am–10pm"
+                title={t('workingHours')}
+                subtitle={t('workingHoursValue')}
               />
               <InfoBlock
                 icon="📞"
-                title="Call center"
+                title={t('callCenter')}
                 subtitle="0683 300 100"
               />
             </div>

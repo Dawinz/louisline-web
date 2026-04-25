@@ -1,13 +1,15 @@
 import ScrollReveal from '../components/ScrollReveal'
 import { IMAGE_URLS } from '../data/routes'
+import { useI18n } from '../i18n/I18nContext'
 
 export default function GalleryPage() {
+  const { t } = useI18n()
   return (
     <section className="space-y-6">
       <ScrollReveal>
         <div className="rounded-3xl bg-gradient-to-r from-[#29388d] to-[#d91d27] p-6 text-white">
-          <h1 className="text-3xl font-bold">Louisline Gallery</h1>
-          <p className="mt-2 text-blue-100">A look at our buses and travel moments.</p>
+          <h1 className="text-3xl font-bold">{t('louislineGallery')}</h1>
+          <p className="mt-2 text-blue-100">{t('galleryIntro')}</p>
         </div>
       </ScrollReveal>
       <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
