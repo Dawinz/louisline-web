@@ -4,7 +4,25 @@ import { ROUTES, locationLabelByValue } from '../data/routes'
 import { useI18n } from '../i18n/I18nContext'
 
 export default function RoutesPage() {
-  const { t } = useI18n()
+  const { language, t } = useI18n()
+  const routeHighlights =
+    language === 'sw'
+      ? [
+          'Safari za asubuhi zinazofaa kwa shughuli za mapema na miunganiko ya safari.',
+          'Usafiri wa moja kwa moja wenye faraja na uhifadhi rahisi mtandaoni.',
+          'Huduma ya safari ndefu ya kuaminika pamoja na msaada wa wateja.',
+          'Ratiba rahisi ya kurudi yenye upatikanaji wa kila siku.',
+          'Utaratibu wa kupanda haraka na muda wa safari wa uhakika.',
+          'Uzoefu wa basi la kiwango cha juu lenye nafasi rafiki kwa mizigo.',
+        ]
+      : [
+          'Morning departures ideal for business and early connections.',
+          'Comfortable direct travel with smooth online reservation.',
+          'Reliable long-distance service with customer support on standby.',
+          'Convenient return schedule with consistent daily availability.',
+          'Fast boarding process and dependable intercity timing.',
+          'Premium coach experience with luggage-friendly space.',
+        ]
   return (
     <section className="space-y-6">
       <ScrollReveal>
@@ -25,7 +43,7 @@ export default function RoutesPage() {
                 {locationLabelByValue[route.from]} to {locationLabelByValue[route.to]}
               </h2>
               <p className="mt-2 text-sm text-slate-600">
-                {t('routesCardDesc')}
+                {routeHighlights[index % routeHighlights.length]}
               </p>
               <Link
                 to={`/?from=${route.from}&to=${route.to}#book`}
