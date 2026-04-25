@@ -34,7 +34,7 @@ export default function HomePage() {
         <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="relative mx-auto flex min-h-[calc(100dvh-4.75rem)] max-w-6xl flex-col justify-center px-4 py-14 md:px-6 md:py-20">
           <div className="grid gap-8 md:grid-cols-2">
-            <ScrollReveal className="hidden md:block">
+            <ScrollReveal>
               <div className="space-y-5">
                 <p className="inline-block rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
                   {t('premiumIntercity')}
@@ -61,7 +61,7 @@ export default function HomePage() {
                 </div>
               </div>
             </ScrollReveal>
-            <ScrollReveal delay={120} className="hidden md:block">
+            <ScrollReveal delay={120}>
               <div className="grid grid-cols-2 gap-3">
                 {heroMixedImages.map((image, index) => (
                   <img
