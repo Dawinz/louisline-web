@@ -33,15 +33,15 @@ export default function HomePage() {
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
         <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="relative mx-auto flex min-h-[calc(100dvh-4.75rem)] max-w-6xl flex-col justify-center px-4 py-14 md:px-6 md:py-20">
-          <div className="flex justify-end">
+          <div className="w-full">
             <ScrollReveal>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 {heroMixedImages.map((image, index) => (
                   <img
                     key={image}
                     src={image}
                     alt={`Louisline preview ${index + 1}`}
-                    className="h-36 w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-44"
+                    className="h-[30dvh] w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-[40dvh]"
                   />
                 ))}
               </div>
