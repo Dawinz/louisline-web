@@ -95,8 +95,8 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
       <p className="px-1 text-xs text-slate-600 md:px-2 md:text-sm">{t('bookingFindTrips')}</p>
 
       <form className="mt-3 overflow-hidden rounded-2xl border border-[#29388d]/20 bg-white shadow-sm" onSubmit={launchBooking}>
-        <div className="grid md:grid-cols-[142px_52px_142px_96px_86px_104px] lg:grid-cols-[1.4fr_auto_1.4fr_0.95fr_0.8fr_132px]">
-          <div className="border-b border-[#29388d]/10 p-3 md:border-b-0 md:border-r md:p-4">
+        <div className="grid grid-cols-2 md:grid-cols-[142px_52px_142px_96px_86px_104px] lg:grid-cols-[1.4fr_auto_1.4fr_0.95fr_0.8fr_132px]">
+          <div className="order-1 border-b border-[#29388d]/10 p-3 md:order-1 md:border-b-0 md:border-r md:p-4">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="from">
               {t('from')}
             </label>
@@ -117,7 +117,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             {fieldErrors.from ? <p className="mt-1 text-xs text-red-600">{fieldErrors.from}</p> : null}
           </div>
 
-          <div className="flex items-center justify-center border-b border-[#29388d]/10 p-1.5 md:border-b-0 md:border-r md:p-2">
+          <div className="order-3 col-span-2 flex items-center justify-center border-b border-[#29388d]/10 p-1.5 md:order-2 md:col-span-1 md:border-b-0 md:border-r md:p-2">
             <button
               type="button"
               onClick={swapRoute}
@@ -128,7 +128,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             </button>
           </div>
 
-          <div className="border-b border-[#29388d]/10 p-3 md:border-b-0 md:border-r md:p-4">
+          <div className="order-2 border-b border-[#29388d]/10 p-3 md:order-3 md:border-b-0 md:border-r md:p-4">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="to">
               {t('to')}
             </label>
@@ -149,7 +149,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             {fieldErrors.to ? <p className="mt-1 text-xs text-red-600">{fieldErrors.to}</p> : null}
           </div>
 
-          <div className="border-b border-[#29388d]/10 p-3 md:border-b-0 md:border-r md:p-4">
+          <div className="order-4 border-b border-[#29388d]/10 p-3 md:order-4 md:border-b-0 md:border-r md:p-4">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="date">
               {t('date')}
             </label>
@@ -165,7 +165,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             {fieldErrors.date ? <p className="mt-1 text-xs text-red-600">{fieldErrors.date}</p> : null}
           </div>
 
-          <div className="border-b border-[#29388d]/10 p-3 md:border-b-0 md:border-r md:p-4">
+          <div className="order-5 border-b border-[#29388d]/10 p-3 md:order-5 md:border-b-0 md:border-r md:p-4">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="passengers">
               {t('passengers')}
             </label>
@@ -187,7 +187,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
           <button
             type="submit"
             disabled={isLaunching}
-            className="bg-[#29388d] px-3 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70 md:py-5 md:text-sm"
+            className="order-6 col-span-2 bg-[#29388d] px-3 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70 md:col-span-1 md:py-5 md:text-sm"
           >
             {isLaunching ? t('launching') : t('search')}
           </button>

@@ -32,7 +32,7 @@ export default function HomePage() {
       >
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
         <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
-        <div className="relative mx-auto flex min-h-[calc(100dvh-4.75rem)] max-w-6xl flex-col justify-center px-4 py-14 md:px-6 md:py-20">
+        <div className="relative mx-auto flex min-h-[44dvh] max-w-6xl flex-col justify-start px-4 py-1 md:min-h-[calc(100dvh-4.75rem)] md:justify-center md:px-6 md:py-20">
           <div className="w-full">
             <ScrollReveal>
               <div className="grid grid-cols-2 gap-3 md:gap-4">
@@ -52,7 +52,7 @@ export default function HomePage() {
 
       <section
         id="book"
-        className="booking-emerge relative z-20 -mt-16 grid gap-3 sm:-mt-20 md:-mt-24 md:grid-cols-[180px_1fr] lg:-mt-28 lg:grid-cols-[200px_1fr]"
+        className="booking-emerge relative z-20 -mt-28 grid gap-3 sm:-mt-28 md:-mt-24 md:grid-cols-[180px_1fr] lg:-mt-28 lg:grid-cols-[200px_1fr]"
       >
         <ScrollReveal>
           <aside className="hidden rounded-2xl bg-gradient-to-b from-[#26118a] to-[#4b16a8] p-4 text-white shadow-xl md:block">
