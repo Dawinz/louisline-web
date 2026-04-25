@@ -18,6 +18,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
   const [fieldErrors, setFieldErrors] = useState({})
   const [submitError, setSubmitError] = useState('')
   const [isLaunching, setIsLaunching] = useState(false)
+  const [bookingOpened, setBookingOpened] = useState(false)
   const { isReady, error, ensureScript, checkReady } = useSafariPlus()
 
   const onChange = (event) => {
@@ -62,6 +63,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
 
     try {
       setIsLaunching(true)
+      setBookingOpened(false)
       document.body.style.overflow = 'hidden'
       document.body.classList.add('safari-dialog-open')
       window.safariplus.newTripDialog({
@@ -71,6 +73,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
         departureDate: form.date,
         passengersCount: Number(form.passengers),
       })
+      setBookingOpened(true)
       const cleanupAfterDialog = () => {
         document.body.style.overflow = ''
         document.body.classList.remove('safari-dialog-open')
@@ -94,7 +97,20 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
       <h3 className="px-1 pt-1 text-lg font-bold text-[#1f2b74] md:px-2 md:text-xl">{title}</h3>
       <p className="px-1 text-xs text-slate-600 md:px-2 md:text-sm">{t('bookingFindTrips')}</p>
 
-      <form className="mt-3 overflow-hidden rounded-2xl border border-[#29388d]/20 bg-white shadow-sm" onSubmit={launchBooking}>
+      {bookingOpened ? (
+        <div className="mt-3 rounded-2xl border border-[#29388d]/20 bg-white p-4 text-center shadow-sm">
+          <p className="text-sm font-semibold text-slate-900">Booking window opened.</p>
+          <p className="mt-1 text-xs text-slate-600">Complete your reservation in Safari Yetu.</p>
+          <button
+            type="button"
+            onClick={() => setBookingOpened(false)}
+            className="mt-3 rounded-lg border border-[#29388d]/30 px-3 py-2 text-xs font-semibold text-[#29388d] hover:bg-[#29388d]/5"
+          >
+            Book another trip
+          </button>
+        </div>
+      ) : (
+        <form className="mt-3 overflow-hidden rounded-2xl border border-[#29388d]/20 bg-white shadow-sm" onSubmit={launchBooking}>
         <div className="grid grid-cols-2 md:grid-cols-[142px_52px_142px_96px_86px_104px] lg:grid-cols-[1.4fr_auto_1.4fr_0.95fr_0.8fr_132px]">
           <div className="order-1 border-b border-[#29388d]/10 p-3 md:order-1 md:border-b-0 md:border-r md:p-4">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="from">
@@ -192,7 +208,8 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             {isLaunching ? t('launching') : t('search')}
           </button>
         </div>
-      </form>
+        </form>
+      )}
 
       <p className="mt-2 text-xs text-slate-600 md:mt-3 md:text-sm">
         {t('selectedRoute')}:{' '}
