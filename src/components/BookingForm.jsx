@@ -187,7 +187,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
           <button
             type="submit"
             disabled={isLaunching}
-            className="bg-[#c6b56a] px-6 py-5 text-base font-extrabold uppercase tracking-wide text-slate-900 transition hover:bg-[#b7a45a] disabled:cursor-not-allowed disabled:opacity-70"
+            className="bg-[#29388d] px-6 py-5 text-base font-extrabold uppercase tracking-wide text-white transition hover:bg-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isLaunching ? t('launching') : t('search')}
           </button>
