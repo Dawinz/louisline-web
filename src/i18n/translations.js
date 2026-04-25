@@ -89,6 +89,14 @@ export const translations = {
     cookies: 'Cookie policy',
     waAria: 'Chat with Louisline on WhatsApp',
     whatsappBtn: 'WhatsApp',
+    directBookOpening: 'Opening secure booking…',
+    directBookWait: 'Connecting you to Safari Yetu. This may take a few seconds.',
+    directBookOpened: 'Booking window launched',
+    directBookOpenedHint:
+      'If you closed the booking window, go back in the app and tap Continue again, or use the Book tab.',
+    directBookFailed: 'Could not open booking automatically',
+    directBookFailedHint: 'Your connection may be slow, or the booking service is still loading.',
+    directBookUseForm: 'Open full booking page',
   },
   sw: {
     navHome: 'Nyumbani',
@@ -180,5 +188,13 @@ export const translations = {
     cookies: 'Sera ya vidakuzi',
     waAria: 'Ongea na Louisline kwa WhatsApp',
     whatsappBtn: 'WhatsApp',
+    directBookOpening: 'Inafungua mfumo salama wa tiketi…',
+    directBookWait: 'Inaunganisha na Safari Yetu. Inaweza kuchukua sekunde chache.',
+    directBookOpened: 'Dirisha la tiketi limefunguliwa',
+    directBookOpenedHint:
+      'Ukiifunga dirisha la tiketi, rudi nyuma kwenye app na ubonyeze Endelea tena, au tumia tab ya Tiketi.',
+    directBookFailed: 'Imeshindikana kufungua tiketi kiotomatiki',
+    directBookFailedHint: 'Muunganisho unaweza kuwa wa polepole, au huduma bado inapakia.',
+    directBookUseForm: 'Fungua ukurasa kamili wa tiketi',
   },
 }

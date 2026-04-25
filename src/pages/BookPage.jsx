@@ -1,9 +1,16 @@
+import { useSearchParams } from 'react-router-dom'
 import BookingForm from '../components/BookingForm'
 import ScrollReveal from '../components/ScrollReveal'
 import { useI18n } from '../i18n/I18nContext'
+import DirectSafariBook from './DirectSafariBook'
 
 export default function BookPage() {
   const { t } = useI18n()
+  const [searchParams] = useSearchParams()
+  if (searchParams.get('dialog') === '1') {
+    return <DirectSafariBook />
+  }
+
   return (
     <section className="space-y-5">
       <ScrollReveal>
