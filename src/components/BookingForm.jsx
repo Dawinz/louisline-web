@@ -90,14 +90,14 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
   }
 
   return (
-    <section className="rounded-3xl border border-white/20 bg-white/95 p-3 shadow-2xl md:p-4">
-      <h3 className="px-2 pt-1 text-xl font-bold text-slate-900">{title}</h3>
+    <section className="rounded-3xl border border-[#29388d]/15 bg-gradient-to-br from-white via-[#f8faff] to-[#fff8f8] p-3 shadow-2xl md:p-4">
+      <h3 className="px-2 pt-1 text-xl font-bold text-[#1f2b74]">{title}</h3>
       <p className="px-2 text-sm text-slate-600">{t('bookingFindTrips')}</p>
 
-      <form className="mt-3 overflow-hidden rounded-2xl border border-slate-200 bg-white" onSubmit={launchBooking}>
+      <form className="mt-3 overflow-hidden rounded-2xl border border-[#29388d]/20 bg-white shadow-sm" onSubmit={launchBooking}>
         <div className="grid md:grid-cols-[1fr_auto_1fr_1fr_1fr_190px]">
-          <div className="border-b border-slate-200 p-4 md:border-b-0 md:border-r">
-            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500" htmlFor="from">
+          <div className="border-b border-[#29388d]/10 p-4 md:border-b-0 md:border-r">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="from">
               {t('from')}
             </label>
             <select
@@ -105,7 +105,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               name="from"
               value={form.from}
               onChange={onChange}
-              className="w-full bg-transparent text-lg font-semibold text-slate-900 focus:outline-none"
+              className="w-full bg-transparent text-base font-semibold text-slate-900 focus:outline-none"
             >
               <option value="">{t('selectLocation')}</option>
               {LOCATIONS.map((location) => (
@@ -117,19 +117,19 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             {fieldErrors.from ? <p className="mt-1 text-xs text-red-600">{fieldErrors.from}</p> : null}
           </div>
 
-          <div className="flex items-center justify-center border-b border-slate-200 p-2 md:border-b-0 md:border-r">
+          <div className="flex items-center justify-center border-b border-[#29388d]/10 p-2 md:border-b-0 md:border-r">
             <button
               type="button"
               onClick={swapRoute}
-              className="rounded-full bg-slate-100 p-2 text-slate-700 transition hover:bg-slate-200"
+              className="rounded-full bg-[#29388d]/10 p-2 text-[#29388d] transition hover:bg-[#29388d]/20"
               aria-label={t('swapRoute')}
             >
               ↔
             </button>
           </div>
 
-          <div className="border-b border-slate-200 p-4 md:border-b-0 md:border-r">
-            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500" htmlFor="to">
+          <div className="border-b border-[#29388d]/10 p-4 md:border-b-0 md:border-r">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="to">
               {t('to')}
             </label>
             <select
@@ -137,7 +137,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               name="to"
               value={form.to}
               onChange={onChange}
-              className="w-full bg-transparent text-lg font-semibold text-slate-900 focus:outline-none"
+              className="w-full bg-transparent text-base font-semibold text-slate-900 focus:outline-none"
             >
               <option value="">{t('selectDestination')}</option>
               {LOCATIONS.map((location) => (
@@ -149,8 +149,8 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             {fieldErrors.to ? <p className="mt-1 text-xs text-red-600">{fieldErrors.to}</p> : null}
           </div>
 
-          <div className="border-b border-slate-200 p-4 md:border-b-0 md:border-r">
-            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500" htmlFor="date">
+          <div className="border-b border-[#29388d]/10 p-4 md:border-b-0 md:border-r">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="date">
               {t('date')}
             </label>
             <input
@@ -160,13 +160,13 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               min={today}
               value={form.date}
               onChange={onChange}
-              className="w-full bg-transparent text-lg font-semibold text-slate-900 focus:outline-none"
+              className="w-full bg-transparent text-base font-semibold text-slate-900 focus:outline-none"
             />
             {fieldErrors.date ? <p className="mt-1 text-xs text-red-600">{fieldErrors.date}</p> : null}
           </div>
 
-          <div className="border-b border-slate-200 p-4 md:border-b-0 md:border-r">
-            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500" htmlFor="passengers">
+          <div className="border-b border-[#29388d]/10 p-4 md:border-b-0 md:border-r">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="passengers">
               {t('passengers')}
             </label>
             <input
@@ -177,7 +177,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               max="8"
               value={form.passengers}
               onChange={onChange}
-              className="w-full bg-transparent text-lg font-semibold text-slate-900 focus:outline-none"
+              className="w-full bg-transparent text-base font-semibold text-slate-900 focus:outline-none"
             />
             {fieldErrors.passengers ? (
               <p className="mt-1 text-xs text-red-600">{fieldErrors.passengers}</p>

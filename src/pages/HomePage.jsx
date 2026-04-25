@@ -79,14 +79,14 @@ export default function HomePage() {
 
       <section
         id="book"
-        className="booking-emerge relative z-20 -mt-16 grid gap-4 sm:-mt-20 md:-mt-24 md:grid-cols-[250px_1fr] lg:-mt-28 lg:grid-cols-[280px_1fr]"
+        className="booking-emerge relative z-20 -mt-16 grid gap-3 sm:-mt-20 md:-mt-24 md:grid-cols-[180px_1fr] lg:-mt-28 lg:grid-cols-[200px_1fr]"
       >
         <ScrollReveal>
-          <aside className="hidden rounded-3xl bg-gradient-to-b from-[#26118a] to-[#4b16a8] p-6 text-white shadow-2xl md:block">
-            <p className="text-3xl font-extrabold">{t('callNow')}</p>
-            <p className="mt-3 text-sm text-indigo-100">{t('needQuickHelp')}</p>
-            <p className="mt-6 text-4xl font-black tracking-wide">0683 300 100</p>
-            <p className="mt-2 text-sm text-indigo-200">{t('supportAvailableDaily')}</p>
+          <aside className="hidden rounded-2xl bg-gradient-to-b from-[#26118a] to-[#4b16a8] p-4 text-white shadow-xl md:block">
+            <p className="text-lg font-extrabold leading-tight">{t('callNow')}</p>
+            <p className="mt-2 text-xs text-indigo-100">{t('needQuickHelp')}</p>
+            <p className="mt-4 text-xl font-black tracking-wide">0683 300 100</p>
+            <p className="mt-1 text-xs text-indigo-200">{t('supportAvailableDaily')}</p>
           </aside>
         </ScrollReveal>
         <ScrollReveal delay={100}>
