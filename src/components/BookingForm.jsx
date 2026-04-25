@@ -97,19 +97,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
       <h3 className="px-1 pt-1 text-lg font-bold text-[#1f2b74] md:px-2 md:text-xl">{title}</h3>
       <p className="px-1 text-xs text-slate-600 md:px-2 md:text-sm">{t('bookingFindTrips')}</p>
 
-      {bookingOpened ? (
-        <div className="mt-3 rounded-2xl border border-[#29388d]/20 bg-white p-4 text-center shadow-sm">
-          <p className="text-sm font-semibold text-slate-900">Booking window opened.</p>
-          <p className="mt-1 text-xs text-slate-600">Complete your reservation in Safari Yetu.</p>
-          <button
-            type="button"
-            onClick={() => setBookingOpened(false)}
-            className="mt-3 rounded-lg border border-[#29388d]/30 px-3 py-2 text-xs font-semibold text-[#29388d] hover:bg-[#29388d]/5"
-          >
-            Book another trip
-          </button>
-        </div>
-      ) : (
+      {!bookingOpened ? (
         <form className="mt-3 overflow-hidden rounded-2xl border border-[#29388d]/20 bg-white shadow-sm" onSubmit={launchBooking}>
         <div className="grid grid-cols-2 md:grid-cols-[142px_52px_142px_96px_86px_104px] lg:grid-cols-[1.4fr_auto_1.4fr_0.95fr_0.8fr_132px]">
           <div className="order-1 border-b border-[#29388d]/10 p-3 md:order-1 md:border-b-0 md:border-r md:p-4">
@@ -209,8 +197,9 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
           </button>
         </div>
         </form>
-      )}
+      ) : null}
 
+      {!bookingOpened ? (
       <p className="mt-2 text-xs text-slate-600 md:mt-3 md:text-sm">
         {t('selectedRoute')}:{' '}
         <span className="font-medium text-slate-900">
@@ -219,7 +208,8 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             : t('chooseOriginDestination')}
         </span>
       </p>
-      {!isReady ? (
+      ) : null}
+      {!bookingOpened && !isReady ? (
         <div className="mt-2 flex items-center gap-2 text-xs text-amber-700">
           <span>{t('bookingServiceNotReady')}</span>
           <button
@@ -234,8 +224,8 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
           </button>
         </div>
       ) : null}
-      {error ? <p className="mt-2 text-xs text-red-600">{error}</p> : null}
-      {submitError ? <p className="mt-2 text-xs text-red-600">{submitError}</p> : null}
+      {!bookingOpened && error ? <p className="mt-2 text-xs text-red-600">{error}</p> : null}
+      {!bookingOpened && submitError ? <p className="mt-2 text-xs text-red-600">{submitError}</p> : null}
     </section>
   )
 }
