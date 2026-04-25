@@ -32,7 +32,7 @@ export default function HomePage() {
       >
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
         <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
-        <div className="relative mx-auto flex min-h-[52dvh] max-w-6xl flex-col justify-center px-4 py-10 md:min-h-[calc(100dvh-4.75rem)] md:px-6 md:py-20">
+        <div className="relative mx-auto flex min-h-[calc(100dvh-4.75rem)] max-w-6xl flex-col justify-center px-4 py-14 md:px-6 md:py-20">
           <div className="grid gap-8 md:grid-cols-2">
             <ScrollReveal className="hidden md:block">
               <div className="space-y-5">
