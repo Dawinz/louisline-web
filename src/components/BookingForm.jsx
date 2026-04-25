@@ -92,6 +92,10 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
     }
   }
 
+  if (bookingOpened) {
+    return null
+  }
+
   return (
     <section className="rounded-2xl border border-[#29388d]/15 bg-gradient-to-br from-white via-[#f8faff] to-[#fff8f8] p-2.5 shadow-xl md:rounded-3xl md:p-4 md:shadow-2xl">
       <h3 className="px-1 pt-1 text-lg font-bold text-[#1f2b74] md:px-2 md:text-xl">{title}</h3>
