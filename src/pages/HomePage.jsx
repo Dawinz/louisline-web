@@ -25,9 +25,9 @@ export default function HomePage() {
       <section
         className="relative -mx-[calc(50vw-50%)] w-screen overflow-hidden text-white"
         style={{
-          backgroundImage: `linear-gradient(rgba(15,23,42,0.76),rgba(15,23,42,0.82)), url('${IMAGE_URLS[0]}')`,
+          backgroundImage: `url('${IMAGE_URLS[0]}')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center top',
         }}
       >
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
@@ -35,7 +35,7 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-6xl px-4 py-0 md:flex md:min-h-[66dvh] md:flex-col md:justify-center md:px-6 md:py-14">
           <div className="w-full">
             <ScrollReveal>
-              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
+              <div className="translate-y-3 grid grid-cols-1 gap-3 md:translate-y-0 md:grid-cols-2 md:gap-4">
                 {heroMixedImages.map((image, index) => (
                   <img
                     key={image}
