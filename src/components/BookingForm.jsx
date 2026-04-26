@@ -98,8 +98,8 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
 
   return (
     <section className="rounded-2xl border border-[#d91d27]/70 bg-[#d91d27] p-2.5 shadow-[0_24px_56px_-20px_rgba(217,29,39,0.65)] md:rounded-3xl md:p-4">
-      <h3 className="px-1 pt-1 text-lg font-bold text-[#1f2b74] md:px-2 md:text-xl">{title}</h3>
-      <p className="px-1 text-xs text-slate-600 md:px-2 md:text-sm">{t('bookingFindTrips')}</p>
+      <h3 className="px-1 pt-1 text-lg font-bold text-white md:px-2 md:text-xl">{title}</h3>
+      <p className="px-1 text-xs text-white/90 md:px-2 md:text-sm">{t('bookingFindTrips')}</p>
 
       {!bookingOpened ? (
         <form className="mt-3 overflow-hidden rounded-2xl border border-[#29388d]/20 bg-white shadow-sm" onSubmit={launchBooking}>
@@ -204,9 +204,9 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
       ) : null}
 
       {!bookingOpened ? (
-      <p className="mt-2 text-xs text-slate-600 md:mt-3 md:text-sm">
+      <p className="mt-2 text-xs text-white/90 md:mt-3 md:text-sm">
         {t('selectedRoute')}:{' '}
-        <span className="font-medium text-slate-900">
+        <span className="font-semibold text-white">
           {form.from && form.to
             ? `${locationLabelByValue[form.from]} ${t('routeTo')} ${locationLabelByValue[form.to]}`
             : t('chooseOriginDestination')}
