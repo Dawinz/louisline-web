@@ -77,9 +77,13 @@ export default function HomePage() {
           [t('featureDigitalTitle'), t('featureDigitalDesc')],
         ].map((feature, index) => (
           <ScrollReveal key={feature[0]} delay={index * 90}>
-            <article className="soft-card feature-card-red glow-on-hover rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-[#29388d]">{feature[0]}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{feature[1]}</p>
+            <article className="soft-card feature-card-red glow-on-hover rounded-2xl p-5 md:p-6">
+              <h3 className="text-lg font-bold tracking-tight text-[#29388d]">{feature[0]}</h3>
+              <div
+                className="mt-2.5 h-0.5 w-10 rounded-full bg-gradient-to-r from-[#29388d] to-[#d91d27]"
+                aria-hidden
+              />
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{feature[1]}</p>
             </article>
           </ScrollReveal>
         ))}
