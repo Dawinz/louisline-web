@@ -32,7 +32,7 @@ export default function HomePage() {
       >
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
         <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
-        <div className="relative mx-auto flex min-h-[40dvh] max-w-6xl flex-col justify-start px-4 py-1 md:min-h-[66dvh] md:justify-center md:px-6 md:py-14">
+        <div className="relative mx-auto max-w-6xl px-4 py-0 md:flex md:min-h-[66dvh] md:flex-col md:justify-center md:px-6 md:py-14">
           <div className="w-full">
             <ScrollReveal>
               <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
@@ -41,8 +41,8 @@ export default function HomePage() {
                     key={image}
                     src={image}
                     alt={`Louisline preview ${index + 1}`}
-                    className={`h-[28dvh] w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-[34dvh] ${
-                      index > 0 ? 'hidden md:block' : ''
+                    className={`h-[28dvh] w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-[46dvh] lg:h-[52dvh] ${
+                      index > 0 ? 'hidden md:block' : 'invisible md:visible'
                     }`}
                   />
                 ))}
