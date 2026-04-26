@@ -22,14 +22,15 @@ export default function HomePage() {
 
   return (
     <div className="space-y-14">
-      <section
-        className="relative -mx-[calc(50vw-50%)] w-screen overflow-hidden text-white"
-        style={{
-          backgroundImage: `url('${IMAGE_URLS[0]}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 12%',
-        }}
-      >
+      <section className="relative -mx-[calc(50vw-50%)] w-screen overflow-hidden text-white">
+        <div
+          className="hero-bg-layer absolute inset-0"
+          style={{
+            backgroundImage: `url('${IMAGE_URLS[0]}')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 12%',
+          }}
+        />
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
         <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
         <div className="relative mx-auto max-w-6xl px-4 py-0 md:flex md:min-h-[66dvh] md:flex-col md:justify-center md:px-6 md:py-14">

@@ -129,7 +129,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             <button
               type="button"
               onClick={swapRoute}
-              className="rounded-full bg-[#29388d]/10 p-2 text-[#29388d] transition hover:bg-[#29388d]/20"
+              className="btn-press rounded-full bg-[#29388d]/10 p-2 text-[#29388d] transition hover:bg-[#29388d]/20"
               aria-label={t('swapRoute')}
             >
               ↔
@@ -195,7 +195,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
           <button
             type="submit"
             disabled={isLaunching}
-            className="order-6 col-span-2 bg-[#29388d] px-3 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70 md:col-span-1 md:py-5 md:text-sm"
+            className="btn-press order-6 col-span-2 bg-[#29388d] px-3 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70 md:col-span-1 md:py-5 md:text-sm"
           >
             {isLaunching ? t('launching') : t('search')}
           </button>
