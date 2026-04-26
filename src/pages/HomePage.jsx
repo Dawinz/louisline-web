@@ -27,7 +27,7 @@ export default function HomePage() {
         style={{
           backgroundImage: `url('${IMAGE_URLS[0]}')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center top',
+          backgroundPosition: 'center 12%',
         }}
       >
         <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
@@ -41,7 +41,7 @@ export default function HomePage() {
                     key={image}
                     src={image}
                     alt={`Louisline preview ${index + 1}`}
-                    className={`h-[28dvh] w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-[46dvh] lg:h-[52dvh] ${
+                    className={`h-[34dvh] w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-[46dvh] lg:h-[52dvh] ${
                       index > 0 ? 'hidden md:block' : 'invisible md:visible'
                     }`}
                   />
