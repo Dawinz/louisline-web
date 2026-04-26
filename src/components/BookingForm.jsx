@@ -97,7 +97,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
   }
 
   return (
-    <section className="rounded-2xl border border-[#d91d27]/40 bg-[#ffd0d5] p-2.5 shadow-[0_22px_52px_-22px_rgba(217,29,39,0.55)] md:rounded-3xl md:p-4">
+    <section className="rounded-2xl border border-[#d91d27]/70 bg-[#d91d27] p-2.5 shadow-[0_24px_56px_-20px_rgba(217,29,39,0.65)] md:rounded-3xl md:p-4">
       <h3 className="px-1 pt-1 text-lg font-bold text-[#1f2b74] md:px-2 md:text-xl">{title}</h3>
       <p className="px-1 text-xs text-slate-600 md:px-2 md:text-sm">{t('bookingFindTrips')}</p>
 
