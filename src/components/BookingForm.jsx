@@ -113,7 +113,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               name="from"
               value={form.from}
               onChange={onChange}
-              className="w-full bg-transparent text-xs font-medium text-slate-900 focus:outline-none md:text-sm"
+              className="w-full bg-transparent text-xs font-medium text-[#29388d] focus:outline-none md:text-sm"
             >
               <option value="">{t('selectLocation')}</option>
               {LOCATIONS.map((location) => (
@@ -145,7 +145,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               name="to"
               value={form.to}
               onChange={onChange}
-              className="w-full bg-transparent text-xs font-medium text-slate-900 focus:outline-none md:text-sm"
+              className="w-full bg-transparent text-xs font-medium text-[#29388d] focus:outline-none md:text-sm"
             >
               <option value="">{t('selectDestination')}</option>
               {LOCATIONS.map((location) => (
@@ -168,7 +168,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               min={today}
               value={form.date}
               onChange={onChange}
-              className="w-full bg-transparent text-xs font-semibold text-slate-900 focus:outline-none md:text-sm"
+              className="w-full bg-transparent text-xs font-semibold text-[#29388d] focus:outline-none md:text-sm"
             />
             {fieldErrors.date ? <p className="mt-1 text-xs text-red-600">{fieldErrors.date}</p> : null}
           </div>
@@ -185,7 +185,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               max="8"
               value={form.passengers}
               onChange={onChange}
-              className="w-full bg-transparent text-xs font-semibold text-slate-900 focus:outline-none md:text-sm"
+              className="w-full bg-transparent text-xs font-semibold text-[#29388d] focus:outline-none md:text-sm"
             />
             {fieldErrors.passengers ? (
               <p className="mt-1 text-xs text-red-600">{fieldErrors.passengers}</p>
