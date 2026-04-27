@@ -28,11 +28,6 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
     setSubmitError('')
   }
 
-  const swapRoute = () => {
-    setForm((prev) => ({ ...prev, from: prev.to, to: prev.from }))
-    setFieldErrors((prev) => ({ ...prev, from: '', to: '' }))
-  }
-
   const validate = () => {
     const nextErrors = {}
     if (!form.from) nextErrors.from = t('errSelectDeparture')
@@ -113,7 +108,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               name="from"
               value={form.from}
               onChange={onChange}
-              className="w-full bg-transparent text-xs font-medium text-[#29388d] focus:outline-none md:text-sm"
+              className="w-full rounded-lg border border-[#29388d]/55 bg-white px-2.5 py-2 text-xs font-medium text-[#29388d] shadow-sm focus:border-[#29388d] focus:outline-none focus:ring-2 focus:ring-[#29388d]/20 md:text-sm"
             >
               <option value="">{t('selectLocation')}</option>
               {LOCATIONS.map((location) => (
@@ -125,17 +120,6 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
             {fieldErrors.from ? <p className="mt-1 text-xs text-red-600">{fieldErrors.from}</p> : null}
           </div>
 
-          <div className="order-3 col-span-2 flex items-center justify-center border-b border-[#29388d]/10 p-1.5 md:order-2 md:col-span-1 md:border-b-0 md:border-r md:p-2">
-            <button
-              type="button"
-              onClick={swapRoute}
-              className="btn-press rounded-full bg-[#29388d]/10 p-2 text-[#29388d] transition hover:bg-[#29388d]/20"
-              aria-label={t('swapRoute')}
-            >
-              ↔
-            </button>
-          </div>
-
           <div className="order-2 border-b border-[#29388d]/10 p-3 md:order-3 md:border-b-0 md:border-r md:p-4">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="to">
               {t('to')}
@@ -145,7 +129,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               name="to"
               value={form.to}
               onChange={onChange}
-              className="w-full bg-transparent text-xs font-medium text-[#29388d] focus:outline-none md:text-sm"
+              className="w-full rounded-lg border border-[#29388d]/55 bg-white px-2.5 py-2 text-xs font-medium text-[#29388d] shadow-sm focus:border-[#29388d] focus:outline-none focus:ring-2 focus:ring-[#29388d]/20 md:text-sm"
             >
               <option value="">{t('selectDestination')}</option>
               {LOCATIONS.map((location) => (
@@ -168,7 +152,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               min={today}
               value={form.date}
               onChange={onChange}
-              className="w-full bg-transparent text-xs font-semibold text-[#29388d] focus:outline-none md:text-sm"
+              className="w-full rounded-lg border border-[#29388d]/55 bg-white px-2.5 py-2 text-xs font-semibold text-[#29388d] shadow-sm focus:border-[#29388d] focus:outline-none focus:ring-2 focus:ring-[#29388d]/20 md:text-sm"
             />
             {fieldErrors.date ? <p className="mt-1 text-xs text-red-600">{fieldErrors.date}</p> : null}
           </div>
@@ -185,7 +169,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
               max="8"
               value={form.passengers}
               onChange={onChange}
-              className="w-full bg-transparent text-xs font-semibold text-[#29388d] focus:outline-none md:text-sm"
+              className="w-full rounded-lg border border-[#29388d]/55 bg-white px-2.5 py-2 text-xs font-semibold text-[#29388d] shadow-sm focus:border-[#29388d] focus:outline-none focus:ring-2 focus:ring-[#29388d]/20 md:text-sm"
             />
             {fieldErrors.passengers ? (
               <p className="mt-1 text-xs text-red-600">{fieldErrors.passengers}</p>
