@@ -27,7 +27,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-14">
-      <section className="relative -mx-[calc(50vw-50%)] w-screen overflow-hidden text-white md:max-h-[560px]">
+      <section className="relative -mx-[calc(50vw-50%)] w-screen overflow-hidden text-white md:max-h-[600px]">
         <div
           className="hero-bg-layer absolute inset-0"
           style={{
@@ -36,32 +36,54 @@ export default function HomePage() {
             backgroundPosition: 'center',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0c173f]/82 via-[#112156]/62 to-[#0f172a]/28" />
-        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-7 md:px-6 md:pb-12 md:pt-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/45 to-black/20" />
+        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-7 md:px-8 md:pb-14 md:pt-10">
           <ScrollReveal>
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-bold">
-                <span aria-hidden>🛡️</span>
-                {t('featureSafetyTitle')}
-              </span>
-              <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight md:text-5xl">
-                Safari yako, <span className="text-[#ff4d57]">mwendo wetu</span>
-              </h1>
-              <p className="mt-4 max-w-xl text-base text-blue-100 md:text-lg">
-                {t('bookingFindTrips')}
-              </p>
-              <div className="mt-8 grid grid-cols-1 gap-2 text-sm text-white/95 sm:grid-cols-3">
-                {[
-                  [t('serviceComfort'), '🛋️'],
-                  [t('serviceOnTime'), '📶'],
-                  [t('featureSafetyTitle'), '🛡️'],
-                ].map(([label, icon]) => (
-                  <div key={label} className="rounded-lg border border-white/20 bg-[#0f1f50]/55 px-3 py-2">
-                    <p className="font-semibold">
-                      <span aria-hidden>{icon}</span> {label}
-                    </p>
-                  </div>
-                ))}
+            <div className="md:grid md:grid-cols-[1fr_1.05fr] md:items-end md:gap-6">
+              <div className="max-w-2xl">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-bold backdrop-blur-sm">
+                  <span aria-hidden>🛡️</span>
+                  <span>
+                    Usalama Kwanza
+                    <span className="ml-2 text-[11px] font-medium text-white/85">Safari salama, kila siku</span>
+                  </span>
+                </span>
+                <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight md:text-6xl">
+                  <span className="text-white">Safari yako,</span> <span className="text-[#E53935]">mwendo wetu</span>
+                </h1>
+                <p className="mt-4 max-w-xl text-base text-slate-100 md:text-[22px] md:leading-snug">
+                  Book ticket haraka na salama ndani ya sekunde chache.
+                </p>
+                <div className="mt-7 grid grid-cols-1 gap-2 text-sm text-white/95 sm:grid-cols-3">
+                  {[
+                    ['Viti vya starehe', 'Safari tulivu kila wakati', '🛋️'],
+                    ['WiFi Bure', 'Unganisha papo hapo', '📶'],
+                    ['Usalama Kwanza', 'Safari salama kila siku', '🛡️'],
+                  ].map(([label, desc, icon]) => (
+                    <div key={label} className="rounded-lg border border-white/20 bg-[#0f1f50]/55 px-3 py-2">
+                      <p className="font-semibold">
+                        <span aria-hidden>{icon}</span> {label}
+                      </p>
+                      <p className="mt-0.5 text-[11px] text-white/85">{desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative mt-6 hidden md:block">
+                <img
+                  src="/louisline-header-desktop.png"
+                  alt="Modern Louis Line coach"
+                  className="ml-auto w-full max-w-[720px] object-contain drop-shadow-[0_20px_22px_rgba(0,0,0,0.35)]"
+                  loading="lazy"
+                />
+              </div>
+              <div className="mt-6 md:hidden">
+                <img
+                  src="/louisline-header-desktop.png"
+                  alt="Modern Louis Line coach"
+                  className="w-full rounded-xl border border-white/25 object-cover shadow-xl"
+                  loading="lazy"
+                />
               </div>
             </div>
           </ScrollReveal>
@@ -98,7 +120,7 @@ export default function HomePage() {
         ))}
       </section>
 
-      <section>
+      <section id="about">
         <ScrollReveal>
           <h2 className="text-center text-2xl font-black tracking-tight text-[#1e2a6e] md:text-3xl">
             Kwa nini uchague Louis Line?
