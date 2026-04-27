@@ -92,12 +92,12 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
   }
 
   return (
-    <section className="rounded-2xl border border-[#d91d27]/70 bg-[#d91d27] p-2.5 shadow-[0_24px_56px_-20px_rgba(217,29,39,0.65)] md:rounded-3xl md:p-4">
-      <h3 className="px-1 pt-1 text-lg font-bold text-white md:px-2 md:text-xl">{title}</h3>
-      <p className="px-1 text-xs text-white/90 md:px-2 md:text-sm">{t('bookingFindTrips')}</p>
+    <section className="rounded-2xl border border-[#d91d27]/70 bg-[#d91d27] p-2.5 shadow-[0_24px_56px_-20px_rgba(217,29,39,0.65)] md:rounded-2xl md:border-[#dbe4f5] md:bg-white md:shadow-none md:p-0">
+      <h3 className="px-1 pt-1 text-lg font-bold text-white md:px-2 md:pt-0 md:text-lg md:text-[#22307a]">{title}</h3>
+      <p className="px-1 text-xs text-white/90 md:px-2 md:text-sm md:text-slate-500">{t('bookingFindTrips')}</p>
 
       {!bookingOpened ? (
-        <form className="mt-3 overflow-hidden rounded-2xl border border-[#29388d]/20 bg-white shadow-sm" onSubmit={launchBooking}>
+        <form className="mt-3 overflow-hidden rounded-2xl border border-[#29388d]/20 bg-white shadow-sm md:rounded-xl md:border-[#e2e8f0]" onSubmit={launchBooking}>
         <div className="grid grid-cols-2 md:grid-cols-[142px_52px_142px_96px_86px_104px] lg:grid-cols-[1.4fr_auto_1.4fr_0.95fr_0.8fr_132px]">
           <div className="order-1 border-b border-[#29388d]/10 p-3 md:order-1 md:border-b-0 md:border-r md:p-4">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-[#29388d]" htmlFor="from">
@@ -179,7 +179,7 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
           <button
             type="submit"
             disabled={isLaunching}
-            className="btn-press order-6 col-span-2 bg-[#29388d] px-3 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70 md:col-span-1 md:py-5 md:text-sm"
+            className="btn-press order-6 col-span-2 bg-[#29388d] px-3 py-3.5 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-[#1e2a6e] disabled:cursor-not-allowed disabled:opacity-70 md:col-span-1 md:bg-[#10a04a] md:py-5 md:text-sm md:hover:bg-[#0b8b3f]"
           >
             {isLaunching ? t('launching') : t('search')}
           </button>
@@ -188,9 +188,9 @@ export default function BookingForm({ initialValues = {}, title = 'Book a trip' 
       ) : null}
 
       {!bookingOpened ? (
-      <p className="mt-2 text-xs text-white/90 md:mt-3 md:text-sm">
+      <p className="mt-2 text-xs text-white/90 md:mt-3 md:text-sm md:text-slate-500">
         {t('selectedRoute')}:{' '}
-        <span className="font-semibold text-white">
+        <span className="font-semibold text-white md:text-[#22307a]">
           {form.from && form.to
             ? `${locationLabelByValue[form.from]} ${t('routeTo')} ${locationLabelByValue[form.to]}`
             : t('chooseOriginDestination')}

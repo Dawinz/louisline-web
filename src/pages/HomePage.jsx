@@ -15,9 +15,14 @@ export default function HomePage() {
     }),
     [searchParams],
   )
-  const heroMixedImages = useMemo(
-    () => [IMAGE_URLS[0], IMAGE_URLS[4]].filter(Boolean),
-    [],
+  const featureTiles = useMemo(
+    () => [
+      [t('featureSafetyTitle'), t('featureSafetyDesc'), '🛡️'],
+      [t('featureComfortTitle'), t('featureComfortDesc'), '🛋️'],
+      [t('featureDigitalTitle'), t('featureDigitalDesc'), '🎟️'],
+      [t('serviceOnTime'), t('routesCardDesc'), '⏱️'],
+    ],
+    [t],
   )
 
   return (
@@ -28,65 +33,90 @@ export default function HomePage() {
           style={{
             backgroundImage: `url('${IMAGE_URLS[0]}')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center 12%',
+            backgroundPosition: 'center',
           }}
         />
-        <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-red-300/20 blur-3xl" />
-        <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-blue-300/20 blur-3xl" />
-        <div className="relative mx-auto max-w-6xl px-4 py-0 md:flex md:min-h-[66dvh] md:flex-col md:justify-center md:px-6 md:py-14">
-          <div className="w-full">
-            <ScrollReveal>
-              <div className="translate-y-3 grid grid-cols-1 gap-3 md:translate-y-0 md:grid-cols-2 md:gap-4">
-                {heroMixedImages.map((image, index) => (
-                  <img
-                    key={image}
-                    src={image}
-                    alt={`Louisline preview ${index + 1}`}
-                    className={`h-[34dvh] w-full rounded-xl border border-white/20 object-cover shadow-xl md:h-[46dvh] lg:h-[52dvh] ${
-                      index > 0 ? 'hidden md:block' : 'invisible md:visible'
-                    }`}
-                  />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c173f]/82 via-[#112156]/62 to-[#0f172a]/28" />
+        <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-8 md:px-6 md:pb-16 md:pt-14">
+          <ScrollReveal>
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-bold">
+                <span aria-hidden>🛡️</span>
+                {t('featureSafetyTitle')}
+              </span>
+              <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight md:text-6xl">
+                Safari yako, <span className="text-[#ff4d57]">mwendo wetu</span>
+              </h1>
+              <p className="mt-4 max-w-xl text-base text-blue-100 md:text-lg">
+                {t('bookingFindTrips')}
+              </p>
+              <div className="mt-8 grid grid-cols-1 gap-2 text-sm text-white/95 sm:grid-cols-3">
+                {[
+                  [t('serviceComfort'), '🛋️'],
+                  [t('serviceOnTime'), '📶'],
+                  [t('featureSafetyTitle'), '🛡️'],
+                ].map(([label, icon]) => (
+                  <div key={label} className="rounded-lg border border-white/20 bg-[#0f1f50]/55 px-3 py-2">
+                    <p className="font-semibold">
+                      <span aria-hidden>{icon}</span> {label}
+                    </p>
+                  </div>
                 ))}
               </div>
-            </ScrollReveal>
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section
         id="book"
-        className="booking-emerge relative z-20 -mt-20 grid gap-3 sm:-mt-20 md:-mt-16 md:grid-cols-[180px_1fr] lg:-mt-16 lg:grid-cols-[200px_1fr]"
+        className="booking-emerge relative z-20 -mt-14 grid gap-3 sm:-mt-14 md:-mt-20"
       >
-        <ScrollReveal>
-          <aside className="hidden rounded-2xl bg-gradient-to-b from-[#26118a] to-[#4b16a8] p-4 text-white shadow-xl md:block">
-            <p className="text-lg font-extrabold leading-tight">{t('callNow')}</p>
-            <p className="mt-2 text-xs text-indigo-100">{t('needQuickHelp')}</p>
-            <p className="mt-4 text-xl font-black tracking-wide">0683 300 100</p>
-            <p className="mt-1 text-xs text-indigo-200">{t('supportAvailableDaily')}</p>
-          </aside>
-        </ScrollReveal>
-        <ScrollReveal delay={100}>
-          <BookingForm initialValues={prefilled} title={t('searchAndBookBus')} />
+        <ScrollReveal delay={80}>
+          <div className="mx-auto w-full max-w-5xl rounded-2xl border border-[#d7deee] bg-white p-2 shadow-[0_24px_50px_-24px_rgba(15,23,42,0.35)] md:p-3">
+            <div className="grid grid-cols-3 gap-1 rounded-xl border border-slate-200 bg-slate-50 p-1 text-xs font-semibold md:text-sm">
+              <button type="button" className="rounded-md bg-[#29388d] px-2 py-2 text-white">{t('navBook')}</button>
+              <button type="button" className="rounded-md px-2 py-2 text-slate-500">{t('bookJourney')}</button>
+              <button type="button" className="rounded-md px-2 py-2 text-slate-500">{t('galleryPreview')}</button>
+            </div>
+            <BookingForm initialValues={prefilled} title={t('searchAndBookBus')} />
+          </div>
         </ScrollReveal>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-3">
+      <section className="grid grid-cols-2 gap-3 rounded-2xl border border-slate-200 bg-white p-3 md:grid-cols-4 md:p-4">
         {[
-          [t('featureSafetyTitle'), t('featureSafetyDesc')],
-          [t('featureComfortTitle'), t('featureComfortDesc')],
-          [t('featureDigitalTitle'), t('featureDigitalDesc')],
-        ].map((feature, index) => (
-          <ScrollReveal key={feature[0]} delay={index * 90}>
-            <article className="soft-card feature-card-red glow-on-hover rounded-2xl p-5 md:p-6">
-              <h3 className="text-lg font-bold tracking-tight text-[#29388d]">{feature[0]}</h3>
-              <div
-                className="mt-2.5 h-0.5 w-10 rounded-full bg-gradient-to-r from-[#29388d] to-[#d91d27]"
-                aria-hidden
-              />
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">{feature[1]}</p>
-            </article>
-          </ScrollReveal>
+          ['10,000+', t('serviceComfort')],
+          ['100%', t('featureSafetyTitle')],
+          ['20+', t('navRoutes')],
+          ['4.8/5', t('followUs')],
+        ].map((stat) => (
+          <div key={stat[0]} className="rounded-xl border border-slate-100 bg-slate-50 px-3 py-3 text-center">
+            <p className="text-xl font-black text-[#29388d] md:text-2xl">{stat[0]}</p>
+            <p className="mt-1 text-xs font-semibold text-slate-500 md:text-sm">{stat[1]}</p>
+          </div>
         ))}
+      </section>
+
+      <section>
+        <ScrollReveal>
+          <h2 className="text-center text-2xl font-black tracking-tight text-[#1e2a6e] md:text-3xl">
+            Kwa nini uchague Louis Line?
+          </h2>
+        </ScrollReveal>
+        <div className="mt-5 grid gap-3 md:grid-cols-4">
+          {featureTiles.map((feature, index) => (
+            <ScrollReveal key={feature[0]} delay={index * 70}>
+              <article className="rounded-2xl border border-[#dbe4f5] bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#eef3ff] text-lg">
+                  {feature[2]}
+                </div>
+                <h3 className="text-base font-bold text-[#22307a]">{feature[0]}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{feature[1]}</p>
+              </article>
+            </ScrollReveal>
+          ))}
+        </div>
       </section>
 
       <section>
