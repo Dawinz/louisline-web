@@ -2,20 +2,6 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useI18n } from '../i18n/I18nContext'
 
-function InfoBlock({ icon, title, subtitle }) {
-  return (
-    <div className="flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1.5">
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[#eef3ff] text-lg text-[#29388d]">
-        {icon}
-      </div>
-      <div className="leading-tight">
-        <p className="text-[11px] font-bold uppercase tracking-wide text-slate-500">{title}</p>
-        <p className="text-xs font-semibold text-[#1e2a6e]">{subtitle}</p>
-      </div>
-    </div>
-  )
-}
-
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { language, setLanguage, t } = useI18n()
@@ -29,20 +15,20 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur">
-      <div className="relative mx-auto max-w-7xl px-4 py-3 md:py-3.5">
+      <div className="relative mx-auto max-w-7xl px-3 py-2.5 md:px-4 md:py-3">
         <div className="flex items-center justify-between gap-3 lg:gap-6">
           {/* Logo */}
           <Link
             to="/"
-            className="flex shrink-0 items-center gap-3 rounded-xl bg-white px-2 py-1.5 ring-1 ring-slate-200"
+            className="flex shrink-0 items-center gap-3 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200"
             onClick={() => setMenuOpen(false)}
           >
             <img
               src="/louisline-logo.png"
               alt="Louisline"
-              className="h-10 w-auto drop-shadow-sm md:h-12"
+              className="h-9 w-auto drop-shadow-sm md:h-10"
             />
-            <span className="hidden text-lg font-extrabold tracking-wide text-[#29388d] sm:inline">
+            <span className="hidden text-2xl font-black tracking-tight text-[#29388d] lg:inline">
               LOUISLINE
             </span>
           </Link>
@@ -71,18 +57,6 @@ export default function Navbar() {
 
           {/* Right info + mobile toggle */}
           <div className="flex items-center gap-3 md:gap-4">
-            <div className="hidden items-center gap-3 xl:flex">
-              <InfoBlock
-                icon="🕐"
-                title={t('workingHours')}
-                subtitle={t('workingHoursValue')}
-              />
-              <InfoBlock
-                icon="📞"
-                title={t('callCenter')}
-                subtitle="0683 300 100"
-              />
-            </div>
             <div className="hidden rounded-lg border border-slate-200 bg-white p-1 md:flex">
               <button
                 type="button"
@@ -150,16 +124,6 @@ export default function Navbar() {
                   SW
                 </button>
               </div>
-              <InfoBlock
-                icon="🕐"
-                title={t('workingHours')}
-                subtitle={t('workingHoursValue')}
-              />
-              <InfoBlock
-                icon="📞"
-                title={t('callCenter')}
-                subtitle="0683 300 100"
-              />
             </div>
           </div>
         ) : null}
