@@ -31,7 +31,7 @@ export default function HomePage() {
         <div
           className="hero-bg-layer absolute inset-0"
           style={{
-            backgroundImage: `url('${IMAGE_URLS[0]}')`,
+            backgroundImage: "url('/louisline-header-desktop.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
