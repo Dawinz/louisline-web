@@ -27,7 +27,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-14">
-      <section className="relative -mx-[calc(50vw-50%)] w-screen overflow-hidden text-white">
+      <section className="relative -mx-[calc(50vw-50%)] w-screen overflow-hidden text-white md:max-h-[560px]">
         <div
           className="hero-bg-layer absolute inset-0"
           style={{
@@ -37,14 +37,14 @@ export default function HomePage() {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0c173f]/82 via-[#112156]/62 to-[#0f172a]/28" />
-        <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-8 md:px-6 md:pb-16 md:pt-14">
+        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-7 md:px-6 md:pb-12 md:pt-10">
           <ScrollReveal>
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-bold">
                 <span aria-hidden>🛡️</span>
                 {t('featureSafetyTitle')}
               </span>
-              <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight md:text-6xl">
+              <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight md:text-5xl">
                 Safari yako, <span className="text-[#ff4d57]">mwendo wetu</span>
               </h1>
               <p className="mt-4 max-w-xl text-base text-blue-100 md:text-lg">
