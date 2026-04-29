@@ -69,22 +69,6 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <div className="relative mt-6 hidden md:block">
-                <img
-                  src="/louisline-header-desktop.png"
-                  alt="Modern Louis Line coach"
-                  className="ml-auto w-full max-w-[720px] object-contain drop-shadow-[0_20px_22px_rgba(0,0,0,0.35)]"
-                  loading="lazy"
-                />
-              </div>
-              <div className="mt-6 md:hidden">
-                <img
-                  src="/louisline-header-desktop.png"
-                  alt="Modern Louis Line coach"
-                  className="w-full rounded-xl border border-white/25 object-cover shadow-xl"
-                  loading="lazy"
-                />
-              </div>
             </div>
           </ScrollReveal>
         </div>
