@@ -6,7 +6,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { language, setLanguage, t } = useI18n()
   const location = useLocation()
-  const isHome = location.pathname === '/'
 
   const navLinks = [
     { to: '/', label: t('navHome') },
@@ -27,37 +26,13 @@ export default function Navbar() {
     [location.pathname, t],
   )
 
-  const headerClass = isHome
-    ? 'sticky top-0 z-50 border-b border-white/10 bg-gradient-to-b from-black/55 via-black/25 to-transparent shadow-none backdrop-blur-md'
-    : 'sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur'
-
-  const logoWrapClass = isHome
-    ? 'flex shrink-0 items-center gap-3 rounded-xl bg-white/95 px-3 py-2 shadow-sm ring-1 ring-white/50'
-    : 'flex shrink-0 items-center gap-3 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200'
-
-  const linkBase = isHome
-    ? 'rounded-md px-2 py-1.5 text-sm font-semibold text-white/95 transition hover:bg-white/15 hover:text-white'
-    : 'rounded-md px-2 py-1.5 text-sm font-semibold text-slate-700 transition hover:text-[#1E3A8A] hover:underline hover:underline-offset-4'
-
-  const linkActive = isHome
-    ? 'bg-white/20 text-white underline decoration-white underline-offset-4'
-    : 'bg-[#eef3ff] text-[#1E3A8A] underline underline-offset-4'
-
-  const phoneBtnClass = isHome
-    ? 'hidden h-10 w-10 items-center justify-center rounded-full border border-white/35 bg-white/10 text-white shadow-sm transition hover:bg-white/20 lg:inline-flex'
-    : 'hidden h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-white text-[#1E3A8A] shadow-sm transition hover:bg-slate-50 lg:inline-flex'
-
-  const langWrapClass = isHome
-    ? 'hidden rounded-lg border border-white/25 bg-white/10 p-0.5 backdrop-blur-sm md:flex lg:hidden'
-    : 'hidden rounded-lg border border-slate-200 bg-white p-1 md:flex lg:hidden'
-
-  const menuBtnClass = isHome
-    ? 'inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/25 bg-[#1e2a6e] text-white shadow-sm lg:hidden'
-    : 'inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-200 text-[#29388d] lg:hidden'
-
-  const desktopLangClass = isHome
-    ? 'hidden items-center gap-1 rounded-lg border border-white/20 bg-white/10 px-2 py-1 text-xs font-semibold text-white/90 backdrop-blur-sm lg:flex'
-    : 'hidden items-center gap-1 rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs text-slate-600 lg:flex'
+  const headerClass = 'sticky top-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur'
+  const logoWrapClass = 'flex shrink-0 items-center gap-3 px-1 py-1'
+  const linkBase = 'rounded-md px-2 py-1.5 text-sm font-semibold text-[#1E3A8A] transition hover:text-[#162b66]'
+  const linkActive = 'text-[#1E3A8A] underline underline-offset-4'
+  const phoneBtnClass = 'hidden h-10 w-10 items-center justify-center rounded-lg border border-slate-300 bg-white text-[#1E3A8A] shadow-sm transition hover:bg-slate-50 md:inline-flex'
+  const langWrapClass = 'hidden rounded-lg border border-slate-200 bg-white p-1 sm:flex lg:hidden'
+  const menuBtnClass = 'inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#1f3b8f] text-white shadow-sm transition hover:bg-[#173074]'
 
   return (
     <header className={headerClass}>
@@ -77,7 +52,7 @@ export default function Navbar() {
             <img
               src="/louisline-logo.png"
               alt="Louisline"
-              className={`h-9 w-auto drop-shadow-sm lg:hidden ${isHome ? 'drop-shadow-md' : ''}`}
+              className="h-10 w-auto drop-shadow-sm lg:hidden"
             />
           </Link>
 
@@ -107,50 +82,14 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setLanguage('en')}
-                className={`rounded px-2 py-1 text-xs font-semibold ${
-                  language === 'en'
-                    ? isHome
-                      ? 'bg-white text-[#1e2a6e]'
-                      : 'bg-[#29388d] text-white'
-                    : isHome
-                      ? 'text-white/85'
-                      : 'text-slate-600'
-                }`}
+                className={`rounded px-2 py-1 text-xs font-semibold ${language === 'en' ? 'bg-[#29388d] text-white' : 'text-slate-600'}`}
               >
                 EN
               </button>
               <button
                 type="button"
                 onClick={() => setLanguage('sw')}
-                className={`rounded px-2 py-1 text-xs font-semibold ${
-                  language === 'sw'
-                    ? isHome
-                      ? 'bg-white text-[#1e2a6e]'
-                      : 'bg-[#29388d] text-white'
-                    : isHome
-                      ? 'text-white/85'
-                      : 'text-slate-600'
-                }`}
-              >
-                SW
-              </button>
-            </div>
-
-            <div className={desktopLangClass}>
-              <button
-                type="button"
-                onClick={() => setLanguage('en')}
-                className={`rounded px-1.5 py-0.5 ${language === 'en' ? 'bg-white/25 text-white' : 'text-white/75 hover:text-white'}`}
-              >
-                EN
-              </button>
-              <span className="text-white/40" aria-hidden>
-                |
-              </span>
-              <button
-                type="button"
-                onClick={() => setLanguage('sw')}
-                className={`rounded px-1.5 py-0.5 ${language === 'sw' ? 'bg-white/25 text-white' : 'text-white/75 hover:text-white'}`}
+                className={`rounded px-2 py-1 text-xs font-semibold ${language === 'sw' ? 'bg-[#29388d] text-white' : 'text-slate-600'}`}
               >
                 SW
               </button>
@@ -158,7 +97,7 @@ export default function Navbar() {
 
             <button
               type="button"
-              className={`${menuBtnClass} lg:hidden`}
+              className={menuBtnClass}
               aria-expanded={menuOpen}
               aria-label={menuOpen ? t('closeMenu') : t('openMenu')}
               onClick={() => setMenuOpen((open) => !open)}
