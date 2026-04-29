@@ -17,10 +17,10 @@ export default function HomePage() {
   )
   const featureTiles = useMemo(
     () => [
-      [t('featureSafetyTitle'), t('featureSafetyDesc'), '🛡️'],
-      [t('featureComfortTitle'), t('featureComfortDesc'), '🛋️'],
-      [t('featureDigitalTitle'), t('featureDigitalDesc'), '🎟️'],
-      [t('serviceOnTime'), t('routesCardDesc'), '⏱️'],
+      [t('featureComfortTitle'), t('featureComfortDesc'), '🛋️', 'bg-[#eef3ff]'],
+      [t('featureWifiTitle'), t('featureWifiDesc'), '📶', 'bg-red-50'],
+      [t('featureSafetyTitle'), t('featureSafetyDesc'), '🛡️', 'bg-[#eef3ff]'],
+      [t('featurePunctualTitle'), t('featurePunctualDesc'), '⏱️', 'bg-red-50'],
     ],
     [t],
   )
@@ -37,28 +37,29 @@ export default function HomePage() {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/45 to-black/20" />
-        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-7 md:px-8 md:pb-14 md:pt-10">
+        <div className="relative mx-auto max-w-6xl px-4 pb-10 pt-16 md:px-8 md:pb-14 md:pt-20">
           <ScrollReveal>
             <div className="md:grid md:grid-cols-[1fr_1.05fr] md:items-end md:gap-6">
               <div className="max-w-2xl">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-bold backdrop-blur-sm">
                   <span aria-hidden>🛡️</span>
                   <span>
-                    Usalama Kwanza
-                    <span className="ml-2 text-[11px] font-medium text-white/85">Safari salama, kila siku</span>
+                    {t('heroChipSafety')}
+                    <span className="ml-2 text-[11px] font-medium text-white/85">{t('heroChipSafetySub')}</span>
                   </span>
                 </span>
                 <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight md:text-6xl">
-                  <span className="text-white">Safari yako,</span> <span className="text-[#E53935]">mwendo wetu</span>
+                  <span className="text-white">{t('heroTaglineStart')}</span>{' '}
+                  <span className="text-[#E53935]">{t('heroTaglineAccent')}</span>
                 </h1>
                 <p className="mt-4 max-w-xl text-base text-slate-100 md:text-[22px] md:leading-snug">
-                  Book ticket haraka na salama ndani ya sekunde chache.
+                  {t('heroLead')}
                 </p>
                 <div className="mt-7 grid grid-cols-1 gap-2 text-sm text-white/95 sm:grid-cols-3">
                   {[
-                    ['Viti vya starehe', 'Safari tulivu kila wakati', '🛋️'],
-                    ['WiFi Bure', 'Unganisha papo hapo', '📶'],
-                    ['Usalama Kwanza', 'Safari salama kila siku', '🛡️'],
+                    [t('heroChipComfort'), t('heroChipComfortSub'), '🛋️'],
+                    [t('heroChipWifi'), t('heroChipWifiSub'), '📶'],
+                    [t('heroChipSafety'), t('heroChipSafetySub'), '🛡️'],
                   ].map(([label, desc, icon]) => (
                     <div key={label} className="rounded-lg border border-white/20 bg-[#0f1f50]/55 px-3 py-2">
                       <p className="font-semibold">
@@ -80,22 +81,23 @@ export default function HomePage() {
       >
         <ScrollReveal delay={80}>
           <div className="mx-auto w-full max-w-5xl rounded-2xl border border-[#d7deee] bg-white p-2 shadow-[0_24px_50px_-24px_rgba(15,23,42,0.35)] md:p-3">
-            <div className="grid grid-cols-3 gap-1 rounded-xl border border-slate-200 bg-slate-50 p-1 text-xs font-semibold md:text-sm">
-              <button type="button" className="rounded-md bg-[#29388d] px-2 py-2 text-white">{t('navBook')}</button>
-              <button type="button" className="rounded-md px-2 py-2 text-slate-500">{t('bookJourney')}</button>
-              <button type="button" className="rounded-md px-2 py-2 text-slate-500">{t('galleryPreview')}</button>
-            </div>
-            <BookingForm initialValues={prefilled} title={t('searchAndBookBus')} />
+            <BookingForm
+              initialValues={prefilled}
+              variant="embedded"
+              showHeader={false}
+              showTripTypeTabs
+              submitLabel={t('searchSafariNow')}
+            />
           </div>
         </ScrollReveal>
       </section>
 
       <section className="grid grid-cols-2 gap-3 rounded-2xl border border-slate-200 bg-white p-3 md:grid-cols-4 md:p-4">
         {[
-          ['10,000+', t('serviceComfort')],
-          ['100%', t('featureSafetyTitle')],
-          ['20+', t('navRoutes')],
-          ['4.8/5', t('followUs')],
+          ['10,000+', t('statCustomers')],
+          ['100%', t('statSafety')],
+          ['20+', t('statCities')],
+          ['4.8/5', t('statReviews')],
         ].map((stat) => (
           <div key={stat[0]} className="rounded-xl border border-slate-100 bg-slate-50 px-3 py-3 text-center">
             <p className="text-xl font-black text-[#29388d] md:text-2xl">{stat[0]}</p>
@@ -107,14 +109,20 @@ export default function HomePage() {
       <section id="about">
         <ScrollReveal>
           <h2 className="text-center text-2xl font-black tracking-tight text-[#1e2a6e] md:text-3xl">
-            Kwa nini uchague Louis Line?
+            {t('whyChooseTitle')}
           </h2>
+          <div className="mx-auto mt-2 flex justify-center gap-1" aria-hidden>
+            <span className="h-1 w-10 rounded-full bg-[#E53935]" />
+            <span className="h-1 w-10 rounded-full bg-[#1E3A8A]" />
+          </div>
         </ScrollReveal>
         <div className="mt-5 grid gap-3 md:grid-cols-4">
           {featureTiles.map((feature, index) => (
             <ScrollReveal key={feature[0]} delay={index * 70}>
               <article className="rounded-2xl border border-[#dbe4f5] bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#eef3ff] text-lg">
+                <div
+                  className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full text-lg ${feature[3]}`}
+                >
                   {feature[2]}
                 </div>
                 <h3 className="text-base font-bold text-[#22307a]">{feature[0]}</h3>

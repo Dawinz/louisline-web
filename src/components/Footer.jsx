@@ -129,6 +129,9 @@ export default function Footer() {
                 <SocialLink href="https://www.youtube.com" label="YouTube">
                   <span className="text-base">▶</span>
                 </SocialLink>
+                <SocialLink href="https://www.tiktok.com" label={t('socialTiktok')}>
+                  <span className="text-base">♪</span>
+                </SocialLink>
               </div>
             </div>
           </ScrollReveal>
@@ -137,12 +140,18 @@ export default function Footer() {
         <div className="mt-12 border-t border-white/10 pt-6">
           <div className="flex flex-col gap-3 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
             <p>{t('copyright')}</p>
-            <div className="flex flex-wrap gap-x-3 gap-y-1">
-              <span className="cursor-default">{t('terms')}</span>
-              <span className="text-slate-600">|</span>
-              <span className="cursor-default">{t('privacy')}</span>
-              <span className="text-slate-600">|</span>
-              <span className="cursor-default">{t('cookies')}</span>
+            <div className="flex flex-col items-start gap-2 sm:items-end">
+              <p className="flex items-center gap-2 text-slate-300">
+                <span aria-hidden>🇹🇿</span>
+                <span>{t('madeInTanzania')}</span>
+              </p>
+              <div className="flex flex-wrap gap-x-3 gap-y-1">
+                <span className="cursor-default">{t('terms')}</span>
+                <span className="text-slate-600">|</span>
+                <span className="cursor-default">{t('privacy')}</span>
+                <span className="text-slate-600">|</span>
+                <span className="cursor-default">{t('cookies')}</span>
+              </div>
             </div>
           </div>
         </div>

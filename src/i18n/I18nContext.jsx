@@ -17,7 +17,15 @@ export function I18nProvider({ children }) {
   }, [language])
 
   const value = useMemo(() => {
-    const t = (key) => translations[language]?.[key] || translations.en[key] || key
+    const t = (key, vars) => {
+      let str = translations[language]?.[key] || translations.en[key] || key
+      if (vars && typeof str === 'string') {
+        for (const [k, v] of Object.entries(vars)) {
+          str = str.replaceAll(`{{${k}}}`, String(v))
+        }
+      }
+      return str
+    }
     return { language, setLanguage, t }
   }, [language])
 
