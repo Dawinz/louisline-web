@@ -21,9 +21,11 @@ body {
   --brand-red: #d91d27;
 }
 
-/* Keep Safari Yetu dialog above sticky navbar on small screens */
-body.safari-dialog-open header {
-  z-index: 1 !important;
+/* Hide app chrome while SafariYetu result UI is open */
+body.safari-dialog-open header,
+body.safari-dialog-open footer,
+body.safari-dialog-open .whatsapp-float {
+  display: none !important;
 }
 
 .glass-panel {

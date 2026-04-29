@@ -130,13 +130,14 @@ export default function HomePage() {
 
       <section
         id="book"
-        className="booking-emerge relative z-20 -mt-16 grid gap-3 sm:-mt-20 md:-mt-20"
+        className="booking-emerge relative z-20 -mt-24 grid gap-3 sm:-mt-24 md:-mt-20"
       >
         <ScrollReveal delay={80}>
           <div className="mx-auto w-full max-w-5xl rounded-2xl border border-[#d7deee] bg-white p-2 shadow-[0_24px_50px_-24px_rgba(15,23,42,0.35)] md:p-3">
             <BookingForm
               initialValues={prefilled}
               title={t('searchAndBookBus')}
+              showTripTabs
             />
           </div>
         </ScrollReveal>

@@ -52,8 +52,8 @@ export default function DirectSafariBook() {
             document.body.classList.remove('safari-dialog-open')
             window.removeEventListener('focus', cleanup)
           }
+          // Keep app chrome hidden while SafariYetu results are open.
           window.addEventListener('focus', cleanup)
-          setTimeout(cleanup, 1500)
         } catch {
           setStatus('error')
         }
